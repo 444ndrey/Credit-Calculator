@@ -15,6 +15,26 @@ namespace Credit_Calculator
         public Form1()
         {
             InitializeComponent();
+            DrawGraf();
+            Setting();
         }
+        void DrawGraf() // рисует столбцы
+        {
+            CreditGraf.Columns.Add("data", "Дата");
+            CreditGraf.Columns.Add("month", "Месяц");
+            CreditGraf.Columns.Add("payment", "Платеж");
+            CreditGraf.Columns.Add("procent", "Процент");
+            CreditGraf.Columns.Add("MainSum", "Основная сумма");
+            CreditGraf.Columns.Add("amount", "Остаток");
+        }
+        #region tablesetting 
+        // сюда забивай настройки таблицы
+       //***************
+        void Setting()
+        {
+            CreditGraf.Columns[4].Width = 89;
+        }
+        //***************
+        #endregion
     }
 }

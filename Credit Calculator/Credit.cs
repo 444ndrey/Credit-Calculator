@@ -157,7 +157,5 @@ namespace Credit_Calculator
             }
         }
         #endregion
-
-
     }
 }
