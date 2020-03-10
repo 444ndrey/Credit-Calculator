@@ -36,5 +36,11 @@ namespace Credit_Calculator
         }
         //***************
         #endregion
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+    // Да
 }
