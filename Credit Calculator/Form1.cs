@@ -29,6 +29,7 @@ namespace Credit_Calculator
         }
         #region tablesetting 
         // сюда забивай настройки таблицы
+        //gfgfggf
        //***************
         void Setting()
         {
