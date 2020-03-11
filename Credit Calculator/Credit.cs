@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 namespace Credit_Calculator
-{
+{//test
+    //test7
     sealed class Credit
     {
         double payment;
