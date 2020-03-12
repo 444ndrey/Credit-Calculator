@@ -24,24 +24,24 @@ namespace Credit_Calculator
             CreditGraf.Columns.Add("month", "Месяц");
             CreditGraf.Columns.Add("payment", "Платеж");
             CreditGraf.Columns.Add("procent", "Процент");
-            CreditGraf.Columns.Add("MainSum", "Основная сумма");
+            CreditGraf.Columns.Add("MainSum", "Основная \nсумма");
             CreditGraf.Columns.Add("amount", "Остаток");
         }
         #region tablesetting 
         // сюда забивай настройки таблицы
-        //gfgfggf
        //***************
         void Setting()
         {
-            CreditGraf.Columns[4].Width = 89;
+            CreditGraf.RowHeadersVisible = false;
+            CreditGraf.AllowUserToResizeColumns = false;
+            CreditGraf.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;          
         }
         //***************
         #endregion
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
     }
-    // Да
 }
