@@ -29,18 +29,29 @@ namespace Credit_Calculator
             CreditGraf.Columns.Add("MainSum", "Основная \nсумма");
             CreditGraf.Columns.Add("amount", "Остаток");
         }
-        #region tablesetting 
+        #region prop
         // сюда забивай настройки таблицы
-       //***************
+        //***************
         void Setting()
         {
+            #region tablet
+            CreditGraf.GridColor = Color.FromArgb(255, 255, 128);
             foreach (DataGridViewColumn item in CreditGraf.Columns)
             {
                 item.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
+            //Color.FromArgb(35, 44, 63);
+
+            CreditGraf.EnableHeadersVisualStyles = false;
             CreditGraf.RowHeadersVisible = false;
             CreditGraf.AllowUserToResizeColumns = false;
-            CreditGraf.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;  
+            CreditGraf.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            #endregion
+            #region listbox
+            listBox1.SelectedIndex = 0;
+            listBox2.SelectedIndex = 0;
+            #endregion
+
         }
         //***************
         #endregion
@@ -68,14 +79,5 @@ namespace Credit_Calculator
             panel4.Top = button4.Top;
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
