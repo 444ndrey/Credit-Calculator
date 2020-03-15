@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Collections;
 namespace Credit_Calculator
 {
-    //test
     sealed class Credit
     {
         double payment;
@@ -52,7 +51,8 @@ namespace Credit_Calculator
             }
             set
             {
-                if (value > 0) {
+                if (value > 0) 
+                {
                     months = value;
                 }
             }
@@ -79,13 +79,6 @@ namespace Credit_Calculator
         #endregion
         #region ctor 
         //Конструкторы 
-        public Credit(int a,int r,int m,string n) //(сумма, ставка, срок в месяцах,название кредита(пока не работает.)
-        {
-            Amount = Convert.ToDouble(a);
-            Rate = Convert.ToDouble(r);
-            Months = m;
-            Name = n;
-        }
         public Credit(int a, int r, int m) //(сумма,ставка,срок в месяцах)
         {
             Amount = Convert.ToDouble(a);

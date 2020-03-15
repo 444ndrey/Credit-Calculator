@@ -32,9 +32,13 @@ namespace Credit_Calculator
        //***************
         void Setting()
         {
+            foreach (DataGridViewColumn item in CreditGraf.Columns)
+            {
+                item.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             CreditGraf.RowHeadersVisible = false;
             CreditGraf.AllowUserToResizeColumns = false;
-            CreditGraf.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;          
+            CreditGraf.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;  
         }
         //***************
         #endregion
