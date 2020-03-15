@@ -17,6 +17,8 @@ namespace Credit_Calculator
             InitializeComponent();
             DrawGraf();
             Setting();
+            panel4.Height = button2.Height;
+            panel4.Top = button2.Top;
         }
         void DrawGraf() // рисует столбцы
         {
@@ -44,6 +46,34 @@ namespace Credit_Calculator
         #endregion
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel4.Height = button2.Height;
+            panel4.Top = button2.Top;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel4.Height = button3.Height;
+            panel4.Top = button3.Top;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel4.Height = button4.Height;
+            panel4.Top = button4.Top;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
