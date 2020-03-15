@@ -15,10 +15,9 @@ namespace Credit_Calculator
         public Form1()
         {
             InitializeComponent();
-            DrawGraf();
-            Setting();
             panel4.Height = button2.Height;
             panel4.Top = button2.Top;
+            Setting();
         }
         void DrawGraf() // рисует столбцы
         {
@@ -35,13 +34,26 @@ namespace Credit_Calculator
         void Setting()
         {
             #region tablet
-            CreditGraf.GridColor = Color.FromArgb(255, 255, 128);
             foreach (DataGridViewColumn item in CreditGraf.Columns)
             {
                 item.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
+            CreditGraf.ScrollBars = ScrollBars.None;
+            CreditGraf.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(35, 44, 70);
+            CreditGraf.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            CreditGraf.AdvancedColumnHeadersBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Single;
+            CreditGraf.ReadOnly = true;
+            CreditGraf.ForeColor = Color.White;
+            CreditGraf.AllowUserToAddRows = false;
+            CreditGraf.AllowUserToDeleteRows = false;
+            CreditGraf.AllowUserToResizeColumns = false;
+            CreditGraf.AllowUserToOrderColumns = false;
+            CreditGraf.AllowUserToResizeRows = false;
+            CreditGraf.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            CreditGraf.RowHeadersDefaultCellStyle.ForeColor = Color.FromArgb(35, 44, 63);
+            CreditGraf.RowsDefaultCellStyle.BackColor = Color.FromArgb(35, 44, 63);
+            CreditGraf.BackgroundColor = Color.FromArgb(35, 44, 63);
             //Color.FromArgb(35, 44, 63);
-
             CreditGraf.EnableHeadersVisualStyles = false;
             CreditGraf.RowHeadersVisible = false;
             CreditGraf.AllowUserToResizeColumns = false;
@@ -79,5 +91,76 @@ namespace Credit_Calculator
             panel4.Top = button4.Top;
         }
 
+        private void tocount_Click(object sender, EventArgs e)
+        {
+            int a = Int32.Parse(AmountBox.Text);
+            int r = Int32.Parse(RateBox.Text);
+            int m = Int32.Parse(MonthsBox.Text);
+
+            Credit c = new Credit(a, r, m);
+            if(listBox1.SelectedIndex == 0)
+            {
+
+            }
+            else
+            {
+                c.Months *= 12;
+            }
+            CreditGraf.Columns.Clear();
+            c.ToCount();
+            DrawGraf();
+            int j = c.dateTime1.Month;
+            if (listBox2.SelectedIndex == 0)
+            {
+                for (int i = 0; i < c.Months; i++)
+                {
+                    j += 1;
+                    CreditGraf.Rows.Add();
+                    CreditGraf[0, i].Value = (c.dateTime1.AddMonths(i)).ToString(("dd.MM.yyyy"));
+                    CreditGraf[1, i].Value = i + 1;
+                    CreditGraf[2, i].Value = Math.Round(c.Payment, 2);
+                    CreditGraf[3, i].Value = Math.Round((double)c.listRate[i], 2);
+                    CreditGraf[4, i].Value = Math.Round((double)c.listMainSum[i], 2);
+                    CreditGraf[5, i].Value = Math.Round((double)c.listAmount[i], 2);
+                }
+                c.Clear();
+                CreditGraf.ClearSelection();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void CreditGraf_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+        private void CreditGraf_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                try
+                {
+                    CreditGraf.FirstDisplayedScrollingRowIndex--;
+                }
+                catch (Exception)
+                {
+                    CreditGraf.FirstDisplayedScrollingColumnIndex = 0;
+                    
+                }
+            }
+            else 
+            { 
+                if (e.Delta < 0)
+                {
+                    CreditGraf.FirstDisplayedScrollingRowIndex++;
+                }
+            }
+        }
+            
+             
+
+        
     }
 }

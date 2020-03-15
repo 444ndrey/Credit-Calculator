@@ -28,85 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.CreditGraf = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tocount = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MonthsBox = new System.Windows.Forms.TextBox();
+            this.AmountBox = new System.Windows.Forms.TextBox();
+            this.RateBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.tocount = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.CreditGraf)).BeginInit();
+            this.CreditGraf = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreditGraf)).BeginInit();
             this.SuspendLayout();
-            // 
-            // CreditGraf
-            // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
-            this.CreditGraf.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            this.CreditGraf.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.CreditGraf.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.CreditGraf.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CreditGraf.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.CreditGraf.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CreditGraf.DefaultCellStyle = dataGridViewCellStyle18;
-            this.CreditGraf.Location = new System.Drawing.Point(189, 12);
-            this.CreditGraf.Name = "CreditGraf";
-            this.CreditGraf.Size = new System.Drawing.Size(714, 285);
-            this.CreditGraf.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(70)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Location = new System.Drawing.Point(0, 101);
+            this.panel1.Location = new System.Drawing.Point(0, 95);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(183, 419);
+            this.panel1.Size = new System.Drawing.Size(180, 435);
             this.panel1.TabIndex = 1;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel4.Location = new System.Drawing.Point(173, 15);
+            this.panel4.Location = new System.Drawing.Point(168, 7);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(10, 99);
+            this.panel4.Size = new System.Drawing.Size(11, 99);
             this.panel4.TabIndex = 4;
             // 
             // button4
@@ -115,9 +82,9 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(12, 236);
+            this.button4.Location = new System.Drawing.Point(3, 228);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(162, 84);
+            this.button4.Size = new System.Drawing.Size(172, 84);
             this.button4.TabIndex = 7;
             this.button4.Text = "Сохранить";
             this.button4.UseVisualStyleBackColor = true;
@@ -129,9 +96,9 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(12, 130);
+            this.button3.Location = new System.Drawing.Point(3, 122);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(162, 84);
+            this.button3.Size = new System.Drawing.Size(172, 84);
             this.button3.TabIndex = 6;
             this.button3.Text = "Сравнить";
             this.button3.UseVisualStyleBackColor = true;
@@ -143,9 +110,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(12, 15);
+            this.button2.Location = new System.Drawing.Point(3, 7);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 87);
+            this.button2.Size = new System.Drawing.Size(172, 87);
             this.button2.TabIndex = 5;
             this.button2.Text = "Рассчет";
             this.button2.UseVisualStyleBackColor = true;
@@ -160,13 +127,28 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.MonthsBox);
+            this.panel2.Controls.Add(this.AmountBox);
+            this.panel2.Controls.Add(this.RateBox);
             this.panel2.Location = new System.Drawing.Point(189, 303);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(714, 217);
             this.panel2.TabIndex = 2;
+            // 
+            // tocount
+            // 
+            this.tocount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(90)))));
+            this.tocount.FlatAppearance.BorderSize = 0;
+            this.tocount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tocount.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tocount.ForeColor = System.Drawing.Color.White;
+            this.tocount.Location = new System.Drawing.Point(536, 148);
+            this.tocount.Name = "tocount";
+            this.tocount.Size = new System.Drawing.Size(170, 49);
+            this.tocount.TabIndex = 8;
+            this.tocount.Text = "Рассчитать";
+            this.tocount.UseVisualStyleBackColor = false;
+            this.tocount.Click += new System.EventHandler(this.tocount_Click);
             // 
             // label4
             // 
@@ -241,32 +223,32 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Сумма кредита";
             // 
-            // textBox3
+            // MonthsBox
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(261, 110);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.MonthsBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.MonthsBox.ForeColor = System.Drawing.Color.White;
+            this.MonthsBox.Location = new System.Drawing.Point(261, 110);
+            this.MonthsBox.Name = "MonthsBox";
+            this.MonthsBox.Size = new System.Drawing.Size(100, 20);
+            this.MonthsBox.TabIndex = 2;
             // 
-            // textBox2
+            // AmountBox
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(261, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.AmountBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.AmountBox.ForeColor = System.Drawing.Color.White;
+            this.AmountBox.Location = new System.Drawing.Point(261, 30);
+            this.AmountBox.Name = "AmountBox";
+            this.AmountBox.Size = new System.Drawing.Size(100, 20);
+            this.AmountBox.TabIndex = 1;
             // 
-            // textBox1
+            // RateBox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Location = new System.Drawing.Point(261, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.RateBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.RateBox.ForeColor = System.Drawing.SystemColors.Control;
+            this.RateBox.Location = new System.Drawing.Point(261, 66);
+            this.RateBox.Name = "RateBox";
+            this.RateBox.Size = new System.Drawing.Size(100, 20);
+            this.RateBox.TabIndex = 0;
             // 
             // panel3
             // 
@@ -274,22 +256,8 @@
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Location = new System.Drawing.Point(0, 1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(183, 98);
+            this.panel3.Size = new System.Drawing.Size(180, 98);
             this.panel3.TabIndex = 3;
-            // 
-            // tocount
-            // 
-            this.tocount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(76)))));
-            this.tocount.FlatAppearance.BorderSize = 0;
-            this.tocount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tocount.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tocount.ForeColor = System.Drawing.Color.White;
-            this.tocount.Location = new System.Drawing.Point(516, 148);
-            this.tocount.Name = "tocount";
-            this.tocount.Size = new System.Drawing.Size(170, 49);
-            this.tocount.TabIndex = 8;
-            this.tocount.Text = "Рассчитать";
-            this.tocount.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -301,35 +269,48 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // CreditGraf
+            // 
+            this.CreditGraf.AllowUserToAddRows = false;
+            this.CreditGraf.AllowUserToDeleteRows = false;
+            this.CreditGraf.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CreditGraf.Location = new System.Drawing.Point(189, 5);
+            this.CreditGraf.Name = "CreditGraf";
+            this.CreditGraf.ReadOnly = true;
+            this.CreditGraf.ShowEditingIcon = false;
+            this.CreditGraf.Size = new System.Drawing.Size(714, 292);
+            this.CreditGraf.TabIndex = 4;
+            this.CreditGraf.MouseEnter += new System.EventHandler(this.CreditGraf_MouseEnter);
+            this.CreditGraf.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.CreditGraf_MouseWheel);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(907, 523);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.CreditGraf);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Кредитный калькулятор";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.CreditGraf)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CreditGraf)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView CreditGraf;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
@@ -339,15 +320,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox MonthsBox;
+        private System.Windows.Forms.TextBox AmountBox;
+        private System.Windows.Forms.TextBox RateBox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button tocount;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView CreditGraf;
     }
 }
 
