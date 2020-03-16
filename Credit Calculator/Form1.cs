@@ -18,6 +18,7 @@ namespace Credit_Calculator
             panel4.Height = button2.Height;
             panel4.Top = button2.Top;
             Setting();
+            
         }
         void DrawGraf() // рисует столбцы
         {
@@ -63,75 +64,74 @@ namespace Credit_Calculator
             listBox1.SelectedIndex = 0;
             listBox2.SelectedIndex = 0;
             #endregion
-
         }
         //***************
         #endregion
-
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             panel4.Height = button2.Height;
             panel4.Top = button2.Top;
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             panel4.Height = button3.Height;
             panel4.Top = button3.Top;
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             panel4.Height = button4.Height;
             panel4.Top = button4.Top;
         }
-
         private void tocount_Click(object sender, EventArgs e)
         {
-            int a = Int32.Parse(AmountBox.Text);
-            int r = Int32.Parse(RateBox.Text);
-            int m = Int32.Parse(MonthsBox.Text);
+            try
+            {
+                int a = Int32.Parse(AmountBox.Text);
+                int r = Int32.Parse(RateBox.Text);
+                int m = Int32.Parse(MonthsBox.Text);
 
-            Credit c = new Credit(a, r, m);
-            if(listBox1.SelectedIndex == 0)
-            {
-
-            }
-            else
-            {
-                c.Months *= 12;
-            }
-            CreditGraf.Columns.Clear();
-            c.ToCount();
-            DrawGraf();
-            int j = c.dateTime1.Month;
-            if (listBox2.SelectedIndex == 0)
-            {
-                for (int i = 0; i < c.Months; i++)
+                Credit c = new Credit(a, r, m);
+                if (listBox1.SelectedIndex == 0)
                 {
-                    j += 1;
-                    CreditGraf.Rows.Add();
-                    CreditGraf[0, i].Value = (c.dateTime1.AddMonths(i)).ToString(("dd.MM.yyyy"));
-                    CreditGraf[1, i].Value = i + 1;
-                    CreditGraf[2, i].Value = Math.Round(c.Payment, 2);
-                    CreditGraf[3, i].Value = Math.Round((double)c.listRate[i], 2);
-                    CreditGraf[4, i].Value = Math.Round((double)c.listMainSum[i], 2);
-                    CreditGraf[5, i].Value = Math.Round((double)c.listAmount[i], 2);
                 }
-                c.Clear();
-                CreditGraf.ClearSelection();
+                else
+                {
+                    c.Months *= 12;
+                }
+                CreditGraf.Columns.Clear();
+                c.ToCount();
+                DrawGraf();
+                int j = c.dateTime1.Month;
+                if (listBox2.SelectedIndex == 0)
+                {
+                    for (int i = 0; i < c.Months; i++)
+                    {
+                        j += 1;
+                        CreditGraf.Rows.Add();
+                        CreditGraf[0, i].Value = (c.dateTime1.AddMonths(i)).ToString(("dd.MM.yyyy"));
+                        CreditGraf[1, i].Value = i + 1;
+                        CreditGraf[2, i].Value = Math.Round(c.Payment, 2);
+                        CreditGraf[3, i].Value = Math.Round((double)c.listRate[i], 2);
+                        CreditGraf[4, i].Value = Math.Round((double)c.listMainSum[i], 2);
+                        CreditGraf[5, i].Value = Math.Round((double)c.listAmount[i], 2);
+                    }
+                    c.Clear();
+                    CreditGraf.ClearSelection();
+                }
+                else
+                {
+                }
             }
-            else
+            catch (FormatException)
             {
+                ExaptionNullBox();
 
             }
+            
         }
-
         private void CreditGraf_MouseEnter(object sender, EventArgs e)
         {
             
@@ -147,7 +147,6 @@ namespace Credit_Calculator
                 catch (Exception)
                 {
                     CreditGraf.FirstDisplayedScrollingColumnIndex = 0;
-                    
                 }
             }
             else 
@@ -158,9 +157,25 @@ namespace Credit_Calculator
                 }
             }
         }
+        private void CreditGraf_MouseLeave(object sender, EventArgs e)
+        {
+            CreditGraf.ClearSelection();
+        }
+        System.Timers.Timer tm = new System.Timers.Timer(2500);
+        private void ExaptionNullBox() 
+        {
+            label5.Visible = true;
+            label5.Text = "Вы не заполнили все поля !";
+            tm.Elapsed += Timeout;
+            tm.Start();
+            tm.AutoReset = false;
+        }
+        private void Timeout(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            label5.Visible = false;
+            tm.Stop();
             
-             
+        }
 
-        
     }
 }

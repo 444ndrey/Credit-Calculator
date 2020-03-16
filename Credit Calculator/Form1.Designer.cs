@@ -48,6 +48,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CreditGraf = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -120,6 +121,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.tocount);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.listBox2);
@@ -281,7 +283,17 @@
             this.CreditGraf.Size = new System.Drawing.Size(714, 292);
             this.CreditGraf.TabIndex = 4;
             this.CreditGraf.MouseEnter += new System.EventHandler(this.CreditGraf_MouseEnter);
+            this.CreditGraf.MouseLeave += new System.EventHandler(this.CreditGraf_MouseLeave);
             this.CreditGraf.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.CreditGraf_MouseWheel);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label5.Location = new System.Drawing.Point(3, 198);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 10;
             // 
             // Form1
             // 
@@ -330,6 +342,7 @@
         private System.Windows.Forms.Button tocount;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView CreditGraf;
+        private System.Windows.Forms.Label label5;
     }
 }
 
