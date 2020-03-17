@@ -92,6 +92,7 @@ namespace Credit_Calculator
                 int a = Int32.Parse(AmountBox.Text);
                 int r = Int32.Parse(RateBox.Text);
                 int m = Int32.Parse(MonthsBox.Text);
+                //да
 
                 Credit c = new Credit(a, r, m);
                 if (listBox1.SelectedIndex == 0)
