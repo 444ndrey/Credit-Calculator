@@ -15,7 +15,7 @@ namespace Credit_Calculator
         string name; //Имя кредита для сохраненния
         double mainsum; // Платеж по основному кредиту
         #region prop
-        public DateTime dateTime1 = new DateTime(2020, 6, 25);
+        public DateTime dateTime1 = new DateTime();
         public double TotalPayment { get; protected set; }
         public double MounthProcent { get; protected set; }
         public double MainSum 

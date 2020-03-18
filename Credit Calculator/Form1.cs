@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Credit_Calculator
 {
     public partial class Form1 : Form
     {
+        protected string Excpt; //текст исключения
         public Form1()
         {
             InitializeComponent();
@@ -92,9 +94,27 @@ namespace Credit_Calculator
                 int a = Int32.Parse(AmountBox.Text);
                 int r = Int32.Parse(RateBox.Text);
                 int m = Int32.Parse(MonthsBox.Text);
-                //да
-
                 Credit c = new Credit(a, r, m);
+                try
+                {
+                    c.dateTime1 = System.DateTime.Parse(String.Format(DataBox.Text));
+                }
+                catch(Exception) when (DataBox.MaskCompleted == true)
+                {
+                    c.dateTime1 = DateTime.Now;
+                    Excpt = "Неккоректный ввод даты";
+                    ExceptionNullBox();
+                }
+                catch when (DataBox.MaskCompleted == false)
+                {
+                    c.dateTime1 = DateTime.Now;
+                }
+                catch (Exception)
+                {
+                    c.dateTime1 = DateTime.Now;
+                    Excpt = "Неккоректный ввод даты";
+                    ExceptionNullBox();
+                }
                 if (listBox1.SelectedIndex == 0)
                 {
                 }
@@ -126,16 +146,19 @@ namespace Credit_Calculator
                 {
                 }
             }
+            catch (Exception) when (AmountBox.Text == string.Empty || RateBox.Text == string.Empty || MonthsBox.Text == string.Empty)
+            {
+                Excpt = "Заполните все необходимые строки";
+                ExceptionNullBox();
+            }
             catch (FormatException)
             {
-                ExaptionNullBox();
-
+                Excpt = "Некорректный ввод";
+                ExceptionNullBox();
             }
-            
         }
         private void CreditGraf_MouseEnter(object sender, EventArgs e)
         {
-            
         }
         private void CreditGraf_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -163,19 +186,18 @@ namespace Credit_Calculator
             CreditGraf.ClearSelection();
         }
         System.Timers.Timer tm = new System.Timers.Timer(2500);
-        private void ExaptionNullBox() 
+        private void ExceptionNullBox() 
         {
             label5.Visible = true;
-            label5.Text = "Вы не заполнили все поля !";
+            label5.Text = Excpt; 
             tm.Elapsed += Timeout;
             tm.Start();
             tm.AutoReset = false;
         }
-        private void Timeout(Object source, System.Timers.ElapsedEventArgs e)
+        private void Timeout(Object sender, System.Timers.ElapsedEventArgs e)
         {
             label5.Visible = false;
             tm.Stop();
-            
         }
 
     }

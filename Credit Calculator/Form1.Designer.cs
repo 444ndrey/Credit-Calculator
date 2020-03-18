@@ -35,6 +35,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DataBox = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tocount = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,12 +43,12 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.MonthsBox = new System.Windows.Forms.TextBox();
             this.AmountBox = new System.Windows.Forms.TextBox();
             this.RateBox = new System.Windows.Forms.TextBox();
             this.CreditGraf = new System.Windows.Forms.DataGridView();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CreditGraf)).BeginInit();
@@ -118,7 +119,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.maskedTextBox1);
+            this.panel2.Controls.Add(this.DataBox);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.tocount);
             this.panel2.Controls.Add(this.label4);
@@ -126,6 +127,7 @@
             this.panel2.Controls.Add(this.listBox1);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.MonthsBox);
             this.panel2.Controls.Add(this.AmountBox);
@@ -134,6 +136,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(714, 217);
             this.panel2.TabIndex = 2;
+            // 
+            // DataBox
+            // 
+            this.DataBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.DataBox.ForeColor = System.Drawing.Color.White;
+            this.DataBox.Location = new System.Drawing.Point(555, 66);
+            this.DataBox.Mask = "00/00/0000";
+            this.DataBox.Name = "DataBox";
+            this.DataBox.Size = new System.Drawing.Size(100, 20);
+            this.DataBox.TabIndex = 11;
+            this.DataBox.ValidatingType = typeof(System.DateTime);
             // 
             // label5
             // 
@@ -220,6 +233,18 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Процентная ставка\r\n (%годовых)";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(452, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 34);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Дата первой \r\nоплаты";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -274,17 +299,6 @@
             this.CreditGraf.MouseLeave += new System.EventHandler(this.CreditGraf_MouseLeave);
             this.CreditGraf.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.CreditGraf_MouseWheel);
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.maskedTextBox1.ForeColor = System.Drawing.Color.White;
-            this.maskedTextBox1.Location = new System.Drawing.Point(508, 65);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 11;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,7 +342,8 @@
         private System.Windows.Forms.Button tocount;
         private System.Windows.Forms.DataGridView CreditGraf;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox DataBox;
+        private System.Windows.Forms.Label label6;
     }
 }
 
