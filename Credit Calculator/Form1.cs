@@ -30,6 +30,10 @@ namespace Credit_Calculator
             CreditGraf.Columns.Add("procent", "Процент");
             CreditGraf.Columns.Add("MainSum", "Основная \nсумма");
             CreditGraf.Columns.Add("amount", "Остаток");
+            for (int i = 0; i < CreditGraf.ColumnCount; i++)
+            {
+                CreditGraf.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
         #region prop
         // сюда забивай настройки таблицы
@@ -37,10 +41,6 @@ namespace Credit_Calculator
         void Setting()
         {
             #region tablet
-            foreach (DataGridViewColumn item in CreditGraf.Columns)
-            {
-                item.SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
             CreditGraf.ScrollBars = ScrollBars.None;
             CreditGraf.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(35, 44, 70);
             CreditGraf.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -61,6 +61,7 @@ namespace Credit_Calculator
             CreditGraf.RowHeadersVisible = false;
             CreditGraf.AllowUserToResizeColumns = false;
             CreditGraf.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            
             #endregion
             #region listbox
             listBox1.SelectedIndex = 0;
@@ -148,7 +149,7 @@ namespace Credit_Calculator
             }
             catch (Exception) when (AmountBox.Text == string.Empty || RateBox.Text == string.Empty || MonthsBox.Text == string.Empty)
             {
-                Excpt = "Заполните все необходимые строки";
+                Excpt = "Заполните все необходимые поля";
                 ExceptionNullBox();
             }
             catch (FormatException)
@@ -200,5 +201,10 @@ namespace Credit_Calculator
             tm.Stop();
         }
 
+        private void DataBox_Click(object sender, EventArgs e)
+        {
+            DataBox.SelectionStart = 0;
+
+        }
     }
 }

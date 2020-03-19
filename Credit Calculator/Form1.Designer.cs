@@ -62,26 +62,27 @@
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Location = new System.Drawing.Point(0, 12);
+            this.panel1.Location = new System.Drawing.Point(0, -5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 518);
+            this.panel1.Size = new System.Drawing.Size(180, 535);
             this.panel1.TabIndex = 1;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel4.Location = new System.Drawing.Point(168, 7);
+            this.panel4.Location = new System.Drawing.Point(168, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(11, 99);
+            this.panel4.Size = new System.Drawing.Size(11, 81);
             this.panel4.TabIndex = 4;
             // 
             // button4
             // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(3, 228);
+            this.button4.Location = new System.Drawing.Point(3, 218);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(172, 84);
             this.button4.TabIndex = 7;
@@ -91,11 +92,12 @@
             // 
             // button3
             // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 122);
+            this.button3.Location = new System.Drawing.Point(3, 112);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(172, 84);
             this.button3.TabIndex = 6;
@@ -105,11 +107,12 @@
             // 
             // button2
             // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(3, 7);
+            this.button2.Location = new System.Drawing.Point(3, -3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 87);
             this.button2.TabIndex = 5;
@@ -147,6 +150,7 @@
             this.DataBox.Size = new System.Drawing.Size(100, 20);
             this.DataBox.TabIndex = 11;
             this.DataBox.ValidatingType = typeof(System.DateTime);
+            this.DataBox.Click += new System.EventHandler(this.DataBox_Click);
             // 
             // label5
             // 
@@ -159,16 +163,17 @@
             // 
             // tocount
             // 
-            this.tocount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(90)))));
+            this.tocount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.tocount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tocount.FlatAppearance.BorderSize = 0;
             this.tocount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tocount.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tocount.ForeColor = System.Drawing.Color.White;
+            this.tocount.ForeColor = System.Drawing.Color.Black;
             this.tocount.Location = new System.Drawing.Point(536, 148);
             this.tocount.Name = "tocount";
             this.tocount.Size = new System.Drawing.Size(170, 49);
             this.tocount.TabIndex = 8;
-            this.tocount.Text = "Рассчитать";
+            this.tocount.Text = "РАССЧИТАТЬ";
             this.tocount.UseVisualStyleBackColor = false;
             this.tocount.Click += new System.EventHandler(this.tocount_Click);
             // 
@@ -288,6 +293,7 @@
             // 
             this.CreditGraf.AllowUserToAddRows = false;
             this.CreditGraf.AllowUserToDeleteRows = false;
+            this.CreditGraf.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CreditGraf.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CreditGraf.Location = new System.Drawing.Point(189, 5);
             this.CreditGraf.Name = "CreditGraf";
