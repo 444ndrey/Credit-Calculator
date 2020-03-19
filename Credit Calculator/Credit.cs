@@ -79,7 +79,7 @@ namespace Credit_Calculator
         #endregion
         #region ctor 
         //Конструкторы 
-        public Credit(int a, int r, int m) //(сумма,ставка,срок в месяцах)
+        public Credit(int a, double r, int m) //(сумма,ставка,срок в месяцах)
         {
             Amount = Convert.ToDouble(a);
             Rate = Convert.ToDouble(r);

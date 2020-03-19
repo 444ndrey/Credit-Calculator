@@ -63,9 +63,21 @@ namespace Credit_Calculator
             CreditGraf.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             
             #endregion
-            #region listbox
+            #region listboxes
             listBox1.SelectedIndex = 0;
             listBox2.SelectedIndex = 0;
+            #endregion
+            #region TextBoxes
+            AmountBox.MaxLength = 10;
+            RateBox.MaxLength = 5;
+            if(listBox1.SelectedIndex == 0)
+            {
+             MonthsBox.MaxLength = 5;
+            }
+            else
+            {
+                MonthsBox.MaxLength = 2;
+            }
             #endregion
         }
         //***************
@@ -93,7 +105,7 @@ namespace Credit_Calculator
             try
             {
                 int a = Int32.Parse(AmountBox.Text);
-                int r = Int32.Parse(RateBox.Text);
+                double r = Double.Parse(RateBox.Text);
                 int m = Int32.Parse(MonthsBox.Text);
                 Credit c = new Credit(a, r, m);
                 try
@@ -124,11 +136,11 @@ namespace Credit_Calculator
                     c.Months *= 12;
                 }
                 CreditGraf.Columns.Clear();
-                c.ToCount();
                 DrawGraf();
                 int j = c.dateTime1.Month;
                 if (listBox2.SelectedIndex == 0)
                 {
+                    c.ToCount();
                     for (int i = 0; i < c.Months; i++)
                     {
                         j += 1;
@@ -145,6 +157,18 @@ namespace Credit_Calculator
                 }
                 else
                 {
+                    c.ToCountDif();
+                    for (int i = 0; i < c.Months; i++)
+                    {
+                        j += 1;
+                        CreditGraf.Rows.Add();
+                        CreditGraf[0, i].Value = (c.dateTime1.AddMonths(i)).ToString(("dd.MM.yyyy"));
+                        CreditGraf[1, i].Value = i + 1;
+                        CreditGraf[2, i].Value = Math.Round((double)c.ListPayment[i], 2);
+                        CreditGraf[3, i].Value = Math.Round((double)c.listRate[i], 2);
+                        CreditGraf[4, i].Value = Math.Round(c.MainSum, 2);
+                        CreditGraf[5, i].Value = Math.Round((double)c.listAmount[i], 2);
+                    }
                 }
             }
             catch (Exception) when (AmountBox.Text == string.Empty || RateBox.Text == string.Empty || MonthsBox.Text == string.Empty)
@@ -204,7 +228,22 @@ namespace Credit_Calculator
         private void DataBox_Click(object sender, EventArgs e)
         {
             DataBox.SelectionStart = 0;
+        }
 
+        private void listBox1_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == 0)
+            {
+                MonthsBox.MaxLength = 5;
+            }
+            else
+            {
+                if (MonthsBox.Text.Length > 2)
+                {
+                    MonthsBox.Text = MonthsBox.Text.Substring(0,2);
+                }
+                MonthsBox.MaxLength = 2;
+            }
         }
     }
 }
