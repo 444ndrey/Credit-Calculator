@@ -94,6 +94,11 @@ namespace Credit_Calculator
         {
             panel4.Height = button3.Height;
             panel4.Top = button3.Top;
+            Application.Exit();
+            bunifuTransition1.HideSync(FirstUC);
+
+
+
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -244,6 +249,11 @@ namespace Credit_Calculator
                 }
                 MonthsBox.MaxLength = 2;
             }
+        }
+
+        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
