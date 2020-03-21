@@ -11,12 +11,12 @@ namespace Credit_Calculator
 {
     public partial class Form1 : Form
     {
-        protected string Excpt; //текст исключения
+        protected string ExecpMessage;
         public Form1()
         {
             InitializeComponent();
-            panel4.Height = button2.Height;
-            panel4.Top = button2.Top;
+            panel4.Height = ToCountButton.Height;
+            panel4.Top = ToCountButton.Top;
             Setting();
         }
         void DrawGraf() // рисует столбцы
@@ -65,8 +65,7 @@ namespace Credit_Calculator
             listBox2.SelectedIndex = 0;
             #endregion
             #region TextBoxes
-            AmountBox.MaxLength = 10;
-            RateBox.MaxLength = 5;
+            AmountBox.MaxLength = 8;
             if(listBox1.SelectedIndex == 0)
             {
                 MonthsBox.MaxLength = 5;
@@ -84,36 +83,30 @@ namespace Credit_Calculator
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            panel4.Height = button2.Height;
-            panel4.Top = button2.Top;
+            panel4.Height = ToCountButton.Height;
+            panel4.Top = ToCountButton.Top;
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            panel4.Height = button3.Height;
-            panel4.Top = button3.Top;
+            panel4.Height = ToCompareButton.Height;
+            panel4.Top = ToCompareButton.Top;
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            panel4.Height = button4.Height;
-            panel4.Top = button4.Top;
+            panel4.Height = ToSaveButton.Height;
+            panel4.Top = ToSaveButton.Top;
         }
         private void tocount_Click(object sender, EventArgs e)
         {
             try
             {
                 int a = Int32.Parse(AmountBox.Text);
-                double r = Double.Parse(RateBox.Text);
+                double r = Double.Parse(RatesBox.Text);
                 int m = Int32.Parse(MonthsBox.Text);
                 Credit c = new Credit(a, r, m);
                 try
                 {
                     c.dateTime1 = System.DateTime.Parse(String.Format(DataBox.Text));
-                }
-                catch (Exception) when (DataBox.MaskCompleted == true)
-                {
-                    c.dateTime1 = DateTime.Now;
-                    Excpt = "Неккоректный ввод даты";
-                    ExceptionNullBox();
                 }
                 catch when (DataBox.MaskCompleted == false)
                 {
@@ -122,8 +115,8 @@ namespace Credit_Calculator
                 catch (Exception)
                 {
                     c.dateTime1 = DateTime.Now;
-                    Excpt = "Неккоректный ввод даты";
-                    ExceptionNullBox();
+                    ExecpMessage = "Неккоректный ввод даты";
+                    ThisExeptionData();
                 }
                 if (listBox1.SelectedIndex == 0)
                 {
@@ -172,15 +165,15 @@ namespace Credit_Calculator
                 TotalPayment.Text = $"{Math.Round(c.TotalPayment,2)}" + " руб.";
                 TotalRate.Text = $"{Math.Round(c.TotalRate, 2)}" + " руб.";
             }
-            catch (Exception) when (AmountBox.Text == string.Empty || RateBox.Text == string.Empty || MonthsBox.Text == string.Empty)
+            catch (Exception) when (AmountBox.Text == string.Empty || RatesBox.Text == string.Empty || MonthsBox.Text == string.Empty)
             {
-                Excpt = "Заполните все необходимые поля";
-                ExceptionNullBox();
+                ExecpMessage = "Не все необходимые поля были заполненны";
+                ThisExceptionTextBox();
             }
             catch (FormatException)
             {
-                Excpt = "Некорректный ввод";
-                ExceptionNullBox();
+                ExecpMessage = "Неверный формат";
+                ThisExceptionTextBox();
             }
         }
         private void CreditGraf_MouseWheel(object sender, MouseEventArgs e)
@@ -209,25 +202,38 @@ namespace Credit_Calculator
             CreditGraf.ClearSelection();
         }
         System.Timers.Timer tm = new System.Timers.Timer(2500);
-        private void ExceptionNullBox() 
+        private void ThisExceptionTextBox() 
         {
             label5.Visible = true;
-            label5.Text = Excpt; 
+            label5.Text = ExecpMessage;
             tm.Elapsed += Timeout;
             tm.Start();
             tm.AutoReset = false;
+        }
+        System.Timers.Timer tm2 = new System.Timers.Timer(2500);
+        private void ThisExeptionData()
+        {
+            label7.Visible = true;
+            label7.Text = ExecpMessage;
+            tm2.Elapsed += Timeout2;
+            tm2.Start();
+            tm2.AutoReset = false;
         }
         private void Timeout(Object sender, System.Timers.ElapsedEventArgs e)
         {
             label5.Visible = false;
             tm.Stop();
         }
+        private void Timeout2(Object sender, System.Timers.ElapsedEventArgs e)
+        {
+            label7.Visible = false;
+            tm2.Stop();
+        }
 
         private void DataBox_Click(object sender, EventArgs e)
         {
-            DataBox.SelectionStart = 0;
+            if(DataBox.MaskCompleted != true) { DataBox.SelectionStart = 0; }
         }
-
         private void listBox1_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex == 0)
@@ -242,6 +248,18 @@ namespace Credit_Calculator
                 }
                 MonthsBox.MaxLength = 2;
             }
+        }
+
+        private void AmountBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 46 || e.KeyChar == 44 || e.KeyChar == 8) return;
+            else
+                e.Handled = true;
+        }
+
+        private void RatesBox_Click(object sender, EventArgs e)
+        {
+            if (RatesBox.MaskCompleted == false) { RatesBox.SelectionStart = 0; }
         }
     }
 }
