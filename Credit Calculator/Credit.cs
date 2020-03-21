@@ -17,6 +17,7 @@ namespace Credit_Calculator
         #region prop
         public DateTime dateTime1 = new DateTime();
         public double TotalPayment { get; protected set; }
+        public double TotalRate { get; protected set; }
         public double MounthProcent { get; protected set; }
         public double MainSum 
         { 
@@ -110,6 +111,7 @@ namespace Credit_Calculator
                 listAmount.Add(Math.Round(Amount,2));
             }
             TotalPayment = Payment * Months;
+            TotalRate = MounthProcent * Months;
         }
         public void Clear()
         {
@@ -149,6 +151,8 @@ namespace Credit_Calculator
                 ListPayment.Add(payment);
                 listAmount.Add(amount);
             }
+            TotalPayment = Payment * Months;
+            TotalRate = MounthProcent * Months;
         }
         #endregion
     }

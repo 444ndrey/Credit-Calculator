@@ -35,11 +35,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.TotalSum = new System.Windows.Forms.Label();
+            this.TotalRate = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TotalPayment = new System.Windows.Forms.Label();
             this.DataBox = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tocount = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,11 +53,6 @@
             this.AmountBox = new System.Windows.Forms.TextBox();
             this.RateBox = new System.Windows.Forms.TextBox();
             this.CreditGraf = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CreditGraf)).BeginInit();
@@ -126,10 +126,10 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.TotalSum);
+            this.panel2.Controls.Add(this.TotalRate);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.TotalPayment);
             this.panel2.Controls.Add(this.DataBox);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.tocount);
@@ -147,6 +147,43 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(714, 217);
             this.panel2.TabIndex = 2;
+            // 
+            // TotalSum
+            // 
+            this.TotalSum.AutoSize = true;
+            this.TotalSum.ForeColor = System.Drawing.Color.White;
+            this.TotalSum.Location = new System.Drawing.Point(476, 7);
+            this.TotalSum.Name = "TotalSum";
+            this.TotalSum.Size = new System.Drawing.Size(0, 13);
+            this.TotalSum.TabIndex = 12;
+            // 
+            // TotalRate
+            // 
+            this.TotalRate.AutoSize = true;
+            this.TotalRate.ForeColor = System.Drawing.Color.White;
+            this.TotalRate.Location = new System.Drawing.Point(348, 7);
+            this.TotalRate.Name = "TotalRate";
+            this.TotalRate.Size = new System.Drawing.Size(0, 13);
+            this.TotalRate.TabIndex = 12;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(12, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Всего:";
+            // 
+            // TotalPayment
+            // 
+            this.TotalPayment.AutoSize = true;
+            this.TotalPayment.ForeColor = System.Drawing.Color.White;
+            this.TotalPayment.Location = new System.Drawing.Point(229, 7);
+            this.TotalPayment.Name = "TotalPayment";
+            this.TotalPayment.Size = new System.Drawing.Size(0, 13);
+            this.TotalPayment.TabIndex = 12;
             // 
             // DataBox
             // 
@@ -209,6 +246,21 @@
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(126, 26);
             this.listBox2.TabIndex = 8;
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.ForeColor = System.Drawing.Color.White;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "Месяцов",
+            "Лет"});
+            this.listBox1.Location = new System.Drawing.Point(367, 110);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(65, 26);
+            this.listBox1.TabIndex = 7;
+            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
             // 
             // label3
             // 
@@ -295,64 +347,8 @@
             this.CreditGraf.ShowEditingIcon = false;
             this.CreditGraf.Size = new System.Drawing.Size(714, 292);
             this.CreditGraf.TabIndex = 4;
-            this.CreditGraf.MouseEnter += new System.EventHandler(this.CreditGraf_MouseEnter);
             this.CreditGraf.MouseLeave += new System.EventHandler(this.CreditGraf_MouseLeave);
             this.CreditGraf.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.CreditGraf_MouseWheel);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(367, 7);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "label7";
-            // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.ForeColor = System.Drawing.Color.White;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Месяцов",
-            "Лет"});
-            this.listBox1.Location = new System.Drawing.Point(367, 110);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(65, 26);
-            this.listBox1.TabIndex = 7;
-            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(418, 7);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "label7";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(473, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "label7";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(192, 7);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 13);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Всего";
             // 
             // Form1
             // 
@@ -398,10 +394,10 @@
         private System.Windows.Forms.MaskedTextBox DataBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView CreditGraf;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label TotalSum;
+        private System.Windows.Forms.Label TotalRate;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label TotalPayment;
         private System.Windows.Forms.ListBox listBox1;
     }
 }

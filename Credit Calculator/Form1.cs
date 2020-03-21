@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
 namespace Credit_Calculator
 {
     public partial class Form1 : Form
@@ -20,7 +18,6 @@ namespace Credit_Calculator
             panel4.Height = button2.Height;
             panel4.Top = button2.Top;
             Setting();
-            
         }
         void DrawGraf() // рисует столбцы
         {
@@ -72,7 +69,7 @@ namespace Credit_Calculator
             RateBox.MaxLength = 5;
             if(listBox1.SelectedIndex == 0)
             {
-             MonthsBox.MaxLength = 5;
+                MonthsBox.MaxLength = 5;
             }
             else
             {
@@ -94,11 +91,6 @@ namespace Credit_Calculator
         {
             panel4.Height = button3.Height;
             panel4.Top = button3.Top;
-            Application.Exit();
-            bunifuTransition1.HideSync(FirstUC);
-
-
-
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -117,7 +109,7 @@ namespace Credit_Calculator
                 {
                     c.dateTime1 = System.DateTime.Parse(String.Format(DataBox.Text));
                 }
-                catch(Exception) when (DataBox.MaskCompleted == true)
+                catch (Exception) when (DataBox.MaskCompleted == true)
                 {
                     c.dateTime1 = DateTime.Now;
                     Excpt = "Неккоректный ввод даты";
@@ -162,6 +154,7 @@ namespace Credit_Calculator
                 }
                 else
                 {
+
                     c.ToCountDif();
                     for (int i = 0; i < c.Months; i++)
                     {
@@ -175,6 +168,9 @@ namespace Credit_Calculator
                         CreditGraf[5, i].Value = Math.Round((double)c.listAmount[i], 2);
                     }
                 }
+                TotalSum.Text = AmountBox.Text +" руб.";
+                TotalPayment.Text = $"{Math.Round(c.TotalPayment,2)}" + " руб.";
+                TotalRate.Text = $"{Math.Round(c.TotalRate, 2)}" + " руб.";
             }
             catch (Exception) when (AmountBox.Text == string.Empty || RateBox.Text == string.Empty || MonthsBox.Text == string.Empty)
             {
@@ -186,9 +182,6 @@ namespace Credit_Calculator
                 Excpt = "Некорректный ввод";
                 ExceptionNullBox();
             }
-        }
-        private void CreditGraf_MouseEnter(object sender, EventArgs e)
-        {
         }
         private void CreditGraf_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -249,11 +242,6 @@ namespace Credit_Calculator
                 }
                 MonthsBox.MaxLength = 2;
             }
-        }
-
-        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
