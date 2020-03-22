@@ -7,17 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 namespace Credit_Calculator
 {
     public partial class Form1 : Form
     {
         protected string ExecpMessage;
+        #region ForChart
+        ArrayList listRateAint = new ArrayList();
+        ArrayList listMainSumAint = new ArrayList();
+        ArrayList listRateDif = new ArrayList();
+        ArrayList listMainSumDif = new ArrayList();
+        int CharMonths;
+        #endregion
         public Form1()
         {
             InitializeComponent();
             panel4.Height = ToCountButton.Height;
             panel4.Top = ToCountButton.Top;
             Setting();
+            ComaprePanel.Visible = false;
         }
         void DrawGraf() // рисует столбцы
         {
@@ -88,6 +97,7 @@ namespace Credit_Calculator
         private void Form1_Load(object sender, EventArgs e)
         {
         }
+
         private void tocount_Click(object sender, EventArgs e)
         {
             try
@@ -97,6 +107,7 @@ namespace Credit_Calculator
                 double r;
                 r = Convert.ToDouble(RatesBox.Text);
                 int m = Int32.Parse(MonthsBox.Text);
+                int CharMonths = m;
                 Credit c = new Credit(a, r, m);
                 try
                 {
@@ -135,6 +146,12 @@ namespace Credit_Calculator
                         CreditGraf[3, i].Value = Math.Round((double)c.listRate[i], 2);
                         CreditGraf[4, i].Value = Math.Round((double)c.listMainSum[i], 2);
                         CreditGraf[5, i].Value = Math.Round((double)c.listAmount[i], 2);
+
+                        //**********************
+
+                        listRateAint.Add(Math.Round((double)c.listRate[i], 2));
+                        listMainSumAint.Add(Math.Round((double)c.listMainSum[i], 2));
+
                     }
                     c.Clear();
                     CreditGraf.ClearSelection();
@@ -153,6 +170,11 @@ namespace Credit_Calculator
                         CreditGraf[3, i].Value = Math.Round((double)c.listRate[i], 2);
                         CreditGraf[4, i].Value = Math.Round(c.MainSum, 2);
                         CreditGraf[5, i].Value = Math.Round((double)c.listAmount[i], 2);
+
+                        //*************************
+
+                        listRateDif.Add(Math.Round((double)c.listRate[i], 2));
+                        listMainSumDif.Add(Math.Round((double)c.listMainSum[i], 2));
                     }
                 }
                 TotalSum.Text = AmountBox.Text +" руб.";
@@ -315,12 +337,16 @@ namespace Credit_Calculator
             panel4.Height = ToCountButton.Height;
             panel4.Top = ToCountButton.Top;
             ToCountPanel.Visible = true;
+            ComaprePanel.Visible = false;
         }
         private void button3_Click(object sender, EventArgs e)
         {
+            DrawGraphicA();
             panel4.Height = ToCompareButton.Height;
             panel4.Top = ToCompareButton.Top;
+            ToCompareProp();
             ToCountPanel.Visible = false;
+            ComaprePanel.Visible = true;
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -334,5 +360,28 @@ namespace Credit_Calculator
             else
                 e.Handled = true;
         }
+        private void ToCompareProp() 
+        { 
+            ComaprePanel.Size = new System.Drawing.Size(722, 522);
+            ComaprePanel.Location = new System.Drawing.Point(182, -1);
+        }
+        private void DrawGraphicA() 
+        {
+            chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            chart1.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            for (int i = 0; i < CharMonths + 1; i++)
+            {
+                chart1.Series[0].Points.AddXY(i, listRateAint[i]);
+                chart1.Series[1].Points.AddXY(i, listMainSumAint[i]);
+            }
+        }
+        private void DrawGraphicD()
+        {
+            chart1.Series[2].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+
+        }
+
+
+
     }
 }
