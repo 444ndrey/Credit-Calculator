@@ -60,10 +60,14 @@ namespace Credit_Calculator
             CreditGraf.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             
             #endregion
+
+
             #region listboxes
             listBox1.SelectedIndex = 0;
             listBox2.SelectedIndex = 0;
             #endregion
+
+
             #region TextBoxes
             AmountBox.MaxLength = 8;
             if(listBox1.SelectedIndex == 0)
@@ -74,6 +78,9 @@ namespace Credit_Calculator
             {
                 MonthsBox.MaxLength = 2;
             }
+            RatesBox.MaxLength = 6;
+            #endregion
+            #region Chart
             #endregion
         }
         //***************
@@ -81,27 +88,14 @@ namespace Credit_Calculator
         private void Form1_Load(object sender, EventArgs e)
         {
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            panel4.Height = ToCountButton.Height;
-            panel4.Top = ToCountButton.Top;
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            panel4.Height = ToCompareButton.Height;
-            panel4.Top = ToCompareButton.Top;
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {
-            panel4.Height = ToSaveButton.Height;
-            panel4.Top = ToSaveButton.Top;
-        }
         private void tocount_Click(object sender, EventArgs e)
         {
             try
             {
+                if (Convert.ToInt32(AmountBox.Text) <= 0 || Convert.ToInt32(MonthsBox.Text) <= 0 || Convert.ToDouble(RatesBox.Text) <= 0) { throw new FormatException(); }
                 int a = Int32.Parse(AmountBox.Text);
-                double r = Double.Parse(RatesBox.Text);
+                double r;
+                r = Convert.ToDouble(RatesBox.Text);
                 int m = Int32.Parse(MonthsBox.Text);
                 Credit c = new Credit(a, r, m);
                 try
@@ -162,7 +156,7 @@ namespace Credit_Calculator
                     }
                 }
                 TotalSum.Text = AmountBox.Text +" руб.";
-                TotalPayment.Text = $"{Math.Round(c.TotalPayment,2)}" + " руб.";
+                TotalPayment.Text = c.TotalPayment.ToString("0.00");
                 TotalRate.Text = $"{Math.Round(c.TotalRate, 2)}" + " руб.";
             }
             catch (Exception) when (AmountBox.Text == string.Empty || RatesBox.Text == string.Empty || MonthsBox.Text == string.Empty)
@@ -221,18 +215,26 @@ namespace Credit_Calculator
         }
         private void Timeout(Object sender, System.Timers.ElapsedEventArgs e)
         {
-            label5.Visible = false;
-            tm.Stop();
+            try
+            {
+                label5.Visible = false;
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+               tm.Stop();
+            }
         }
         private void Timeout2(Object sender, System.Timers.ElapsedEventArgs e)
         {
             label7.Visible = false;
             tm2.Stop();
         }
-
         private void DataBox_Click(object sender, EventArgs e)
         {
-            if(DataBox.MaskCompleted != true) { DataBox.SelectionStart = 0; }
+            if(DataBox.MaskCompleted != true) { DataBox.SelectionStart = 0; DataBox.Clear(); }
         }
         private void listBox1_Click(object sender, EventArgs e)
         {
@@ -252,14 +254,85 @@ namespace Credit_Calculator
 
         private void AmountBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 46 || e.KeyChar == 44 || e.KeyChar == 8) return;
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8) return;
             else
                 e.Handled = true;
         }
 
-        private void RatesBox_Click(object sender, EventArgs e)
+        private void RatesBox_Leave(object sender, EventArgs e)
         {
-            if (RatesBox.MaskCompleted == false) { RatesBox.SelectionStart = 0; }
+            if (RatesBox.Text != string.Empty)
+            {
+                if (RatesBox.Text.Contains('.'))
+                {
+                    RatesBox.Text = RatesBox.Text.Replace('.', ',');
+                }
+                    RatesBox.Text = Convert.ToDouble(RatesBox.Text).ToString("0.00");
+                
+                if (Convert.ToDouble(RatesBox.Text) > 365)
+                {
+                    RatesBox.Text = $"{365.00}";
+                    RatesBox.Text = Convert.ToDouble(RatesBox.Text).ToString("0.00");
+                }
+            }
+        }
+        private void MonthsBox_Leave(object sender, EventArgs e)
+        {
+            if (MonthsBox.Text != string.Empty)
+            {
+                if (listBox1.SelectedIndex == 1)
+                {
+                    if (Convert.ToInt32(MonthsBox.Text) > 50) { MonthsBox.Text = "50"; }
+                }
+                else
+                {
+                    if ((Convert.ToInt32(MonthsBox.Text) * 12) > 600) { MonthsBox.Text = "600"; }
+                }
+            }
+        }
+
+        private void AmountBox_Leave(object sender, EventArgs e)
+        {
+            if (AmountBox.Text != string.Empty)
+            {
+                if (Convert.ToDouble(AmountBox.Text) > 10000000)
+                {
+                    AmountBox.Text = "10000000";
+                }
+            }
+        }
+
+        private void MonthsBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8) return;
+            else
+                e.Handled = true;
+        }
+        //*****************************************************
+        #region Swtich
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel4.Height = ToCountButton.Height;
+            panel4.Top = ToCountButton.Top;
+            ToCountPanel.Visible = true;
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel4.Height = ToCompareButton.Height;
+            panel4.Top = ToCompareButton.Top;
+            ToCountPanel.Visible = false;
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel4.Height = ToSaveButton.Height;
+            panel4.Top = ToSaveButton.Top;
+        }
+        #endregion
+        private void RatesBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8 || e.KeyChar == 46 || e.KeyChar == 44) return;
+            else
+                e.Handled = true;
         }
     }
 }
