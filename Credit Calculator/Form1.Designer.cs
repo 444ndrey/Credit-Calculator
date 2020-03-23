@@ -30,7 +30,8 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -62,12 +63,14 @@
             this.CreditGraf = new System.Windows.Forms.DataGridView();
             this.ComaprePanel = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             this.ToCountPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CreditGraf)).BeginInit();
             this.ComaprePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -415,9 +418,10 @@
             // 
             this.ComaprePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.ComaprePanel.Controls.Add(this.chart1);
+            this.ComaprePanel.Controls.Add(this.chart2);
             this.ComaprePanel.Location = new System.Drawing.Point(186, 0);
             this.ComaprePanel.Name = "ComaprePanel";
-            this.ComaprePanel.Size = new System.Drawing.Size(718, 289);
+            this.ComaprePanel.Size = new System.Drawing.Size(718, 521);
             this.ComaprePanel.TabIndex = 5;
             // 
             // chart1
@@ -432,19 +436,32 @@
             legend1.Name = "Legend1";
             legend1.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(-4, -5);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.LabelBackColor = System.Drawing.Color.White;
-            series1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(722, 431);
+            this.chart1.Size = new System.Drawing.Size(718, 250);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
+            // 
+            // chart2
+            // 
+            this.chart2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.chart2.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.chart2.BorderSkin.BorderColor = System.Drawing.Color.White;
+            this.chart2.BorderSkin.PageColor = System.Drawing.Color.WhiteSmoke;
+            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(70)))));
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            legend2.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.chart2.Legends.Add(legend2);
+            this.chart2.Location = new System.Drawing.Point(2, 265);
+            this.chart2.Name = "chart2";
+            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            this.chart2.Size = new System.Drawing.Size(716, 250);
+            this.chart2.TabIndex = 1;
+            this.chart2.Text = "chart2";
             // 
             // Form1
             // 
@@ -452,9 +469,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(907, 523);
-            this.Controls.Add(this.ComaprePanel);
             this.Controls.Add(this.ToCountPanel);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ComaprePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -469,6 +486,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CreditGraf)).EndInit();
             this.ComaprePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -504,6 +522,7 @@
         private System.Windows.Forms.DataGridView CreditGraf;
         private System.Windows.Forms.Panel ComaprePanel;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }
 

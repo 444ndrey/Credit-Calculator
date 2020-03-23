@@ -18,7 +18,6 @@ namespace Credit_Calculator
         ArrayList listMainSumAint = new ArrayList();
         ArrayList listRateDif = new ArrayList();
         ArrayList listMainSumDif = new ArrayList();
-        int CharMonths;
         #endregion
         public Form1()
         {
@@ -89,17 +88,16 @@ namespace Credit_Calculator
             }
             RatesBox.MaxLength = 6;
             #endregion
-            #region Chart
-            #endregion
         }
         //***************
         #endregion
         private void Form1_Load(object sender, EventArgs e)
         {
         }
-
         private void tocount_Click(object sender, EventArgs e)
         {
+            chart1.Series.Clear();
+            chart2.Series.Clear();
             try
             {
                 if (Convert.ToInt32(AmountBox.Text) <= 0 || Convert.ToInt32(MonthsBox.Text) <= 0 || Convert.ToDouble(RatesBox.Text) <= 0) { throw new FormatException(); }
@@ -109,6 +107,7 @@ namespace Credit_Calculator
                 int m = Int32.Parse(MonthsBox.Text);
                 int CharMonths = m;
                 Credit c = new Credit(a, r, m);
+                Credit d = new Credit(a, r, m);
                 try
                 {
                     c.dateTime1 = System.DateTime.Parse(String.Format(DataBox.Text));
@@ -133,9 +132,10 @@ namespace Credit_Calculator
                 CreditGraf.Columns.Clear();
                 DrawGraf();
                 int j = c.dateTime1.Month;
+                d.ToCountDif();
+                c.ToCount();
                 if (listBox2.SelectedIndex == 0)
                 {
-                    c.ToCount();
                     for (int i = 0; i < c.Months; i++)
                     {
                         j += 1;
@@ -146,37 +146,36 @@ namespace Credit_Calculator
                         CreditGraf[3, i].Value = Math.Round((double)c.listRate[i], 2);
                         CreditGraf[4, i].Value = Math.Round((double)c.listMainSum[i], 2);
                         CreditGraf[5, i].Value = Math.Round((double)c.listAmount[i], 2);
-
-                        //**********************
-
-                        listRateAint.Add(Math.Round((double)c.listRate[i], 2));
-                        listMainSumAint.Add(Math.Round((double)c.listMainSum[i], 2));
-
                     }
-                    c.Clear();
                     CreditGraf.ClearSelection();
                 }
                 else
                 {
-
-                    c.ToCountDif();
-                    for (int i = 0; i < c.Months; i++)
+                    for (int i = 0; i < d.Months; i++)
                     {
                         j += 1;
                         CreditGraf.Rows.Add();
                         CreditGraf[0, i].Value = (c.dateTime1.AddMonths(i)).ToString(("dd.MM.yyyy"));
                         CreditGraf[1, i].Value = i + 1;
-                        CreditGraf[2, i].Value = Math.Round((double)c.ListPayment[i], 2);
-                        CreditGraf[3, i].Value = Math.Round((double)c.listRate[i], 2);
-                        CreditGraf[4, i].Value = Math.Round(c.MainSum, 2);
-                        CreditGraf[5, i].Value = Math.Round((double)c.listAmount[i], 2);
-
-                        //*************************
-
-                        listRateDif.Add(Math.Round((double)c.listRate[i], 2));
-                        listMainSumDif.Add(Math.Round((double)c.listMainSum[i], 2));
+                        CreditGraf[2, i].Value = Math.Round((double)d.ListPayment[i], 2);
+                        CreditGraf[3, i].Value = Math.Round((double)d.listRate[i], 2);
+                        CreditGraf[4, i].Value = Math.Round(d.MainSum, 2);
+                        CreditGraf[5, i].Value = Math.Round((double)d.listAmount[i], 2);
                     }
+                    CreditGraf.ClearSelection();
                 }
+                for (int i = 0; i < c.Months; i++)                            //Заполняет список для график А
+                {
+                    listRateAint.Add(Math.Round((double)c.listRate[i], 2));
+                    listMainSumAint.Add(Math.Round((double)c.listMainSum[i], 2));
+                }
+                for (int i = 0; i < d.Months; i++)                         //Заполняет список для график Б
+                {
+                    listRateDif.Add(Math.Round((double)d.listRate[i], 2));
+                    listMainSumDif.Add(Math.Round(d.MainSum, 2));
+                }
+                d.Clear();
+                c.Clear();
                 TotalSum.Text = AmountBox.Text +" руб.";
                 TotalPayment.Text = c.TotalPayment.ToString("0.00");
                 TotalRate.Text = $"{Math.Round(c.TotalRate, 2)}" + " руб.";
@@ -190,6 +189,10 @@ namespace Credit_Calculator
             {
                 ExecpMessage = "Неверный формат";
                 ThisExceptionTextBox();
+            }
+            if (AmountBox.Text != string.Empty && RatesBox.Text != string.Empty && MonthsBox.Text != string.Empty)
+            {
+                DrawGraphicA();
             }
         }
         private void CreditGraf_MouseWheel(object sender, MouseEventArgs e)
@@ -273,14 +276,12 @@ namespace Credit_Calculator
                 MonthsBox.MaxLength = 2;
             }
         }
-
         private void AmountBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8) return;
             else
                 e.Handled = true;
         }
-
         private void RatesBox_Leave(object sender, EventArgs e)
         {
             if (RatesBox.Text != string.Empty)
@@ -330,7 +331,10 @@ namespace Credit_Calculator
             else
                 e.Handled = true;
         }
+
+
         //*****************************************************
+
         #region Swtich
         private void button2_Click(object sender, EventArgs e)
         {
@@ -341,7 +345,6 @@ namespace Credit_Calculator
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            DrawGraphicA();
             panel4.Height = ToCompareButton.Height;
             panel4.Top = ToCompareButton.Top;
             ToCompareProp();
@@ -353,7 +356,6 @@ namespace Credit_Calculator
             panel4.Height = ToSaveButton.Height;
             panel4.Top = ToSaveButton.Top;
         }
-        #endregion
         private void RatesBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8 || e.KeyChar == 46 || e.KeyChar == 44) return;
@@ -367,21 +369,32 @@ namespace Credit_Calculator
         }
         private void DrawGraphicA() 
         {
+            int countmonth;
+            if (listBox1.SelectedIndex == 0) { countmonth = Int32.Parse(MonthsBox.Text); }
+            else { countmonth = Int32.Parse(MonthsBox.Text) * 12; }
+            chart1.Series.Add("Процент Аннуитетного");
+            chart2.Series.Add("Процент \nДифференцированного");
+            chart1.Series.Add("Тело кредита Аннуитетного");
+            chart2.Series.Add("Тело кредита \nДифференцированного");
+            #region ChartPop
+            chart1.Series[0].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            chart2.Series[0].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
             chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            chart2.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             chart1.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            for (int i = 0; i < CharMonths + 1; i++)
+            chart2.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            #endregion
+            for (int i = 0; i < countmonth; i++)
             {
-                chart1.Series[0].Points.AddXY(i, listRateAint[i]);
-                chart1.Series[1].Points.AddXY(i, listMainSumAint[i]);
+                chart1.Series[0].Points.AddXY(i + 1, listRateAint[i]);
+                chart1.Series[1].Points.AddXY(i + 1, listMainSumAint[i]);
+            }
+            for (int i = 0; i < countmonth; i++)
+            {
+                chart2.Series[0].Points.AddXY(i + 1, listRateDif[i]);
+                chart2.Series[1].Points.AddXY(i + 1, listMainSumDif[i]);
             }
         }
-        private void DrawGraphicD()
-        {
-            chart1.Series[2].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-
-        }
-
-
-
+        #endregion
     }
 }
