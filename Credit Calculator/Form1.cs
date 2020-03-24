@@ -96,8 +96,6 @@ namespace Credit_Calculator
         }
         private void tocount_Click(object sender, EventArgs e)
         {
-            chart1.Series.Clear();
-            chart2.Series.Clear();
             try
             {
                 if (Convert.ToInt32(AmountBox.Text) <= 0 || Convert.ToInt32(MonthsBox.Text) <= 0 || Convert.ToDouble(RatesBox.Text) <= 0) { throw new FormatException(); }
@@ -128,6 +126,7 @@ namespace Credit_Calculator
                 else
                 {
                     c.Months *= 12;
+                    d.Months *= 12;
                 }
                 CreditGraf.Columns.Clear();
                 DrawGraf();
@@ -369,7 +368,11 @@ namespace Credit_Calculator
         }
         private void DrawGraphicA() 
         {
-            int countmonth;
+            chart1.Series.Clear();
+            chart2.Series.Clear();
+            int countmonth = 0;
+            countmonth = Int32.Parse(MonthsBox.Text);
+            int mod = 1;
             if (listBox1.SelectedIndex == 0) { countmonth = Int32.Parse(MonthsBox.Text); }
             else { countmonth = Int32.Parse(MonthsBox.Text) * 12; }
             chart1.Series.Add("Процент Аннуитетного");
@@ -377,23 +380,29 @@ namespace Credit_Calculator
             chart1.Series.Add("Тело кредита Аннуитетного");
             chart2.Series.Add("Тело кредита \nДифференцированного");
             #region ChartPop
-            chart1.Series[0].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            chart2.Series[0].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            chart2.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            chart1.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            chart2.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            chart1.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            chart2.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            chart2.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            chart1.Series[0].IsValueShownAsLabel = true;
+            chart1.ChartAreas[0].AxisX.ScaleView.Zoom(1, 13);
+            chart2.ChartAreas[0].AxisX.ScaleView.Zoom(1, 13);
+            chart1.ChartAreas[0].AxisX.Interval = 1;
             #endregion
-            for (int i = 0; i < countmonth; i++)
+            for (int i = 0; i < countmonth * mod; i++)
             {
                 chart1.Series[0].Points.AddXY(i + 1, listRateAint[i]);
                 chart1.Series[1].Points.AddXY(i + 1, listMainSumAint[i]);
             }
-            for (int i = 0; i < countmonth; i++)
+            for (int i = 0; i < countmonth * mod; i++)
             {
                 chart2.Series[0].Points.AddXY(i + 1, listRateDif[i]);
                 chart2.Series[1].Points.AddXY(i + 1, listMainSumDif[i]);
             }
+            listMainSumAint.Clear();
+            listMainSumDif.Clear();
+            listRateAint.Clear();
+            listRateDif.Clear();
         }
         #endregion
     }
