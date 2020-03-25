@@ -109,9 +109,9 @@ namespace Credit_Calculator
                 listRate.Add(Math.Round(MounthProcent,2));
                 listMainSum.Add(Math.Round(MainSum,2));
                 listAmount.Add(Math.Round(Amount,2));
+                TotalRate += MounthProcent;
             }
             TotalPayment = Payment * Months;
-            TotalRate = MounthProcent * Months;
         }
         public void Clear()
         {
@@ -150,9 +150,9 @@ namespace Credit_Calculator
                 listRate.Add(MounthProcent);
                 ListPayment.Add(payment);
                 listAmount.Add(amount);
+                TotalRate += MounthProcent;
             }
             TotalPayment = Payment * Months;
-            TotalRate = MounthProcent * Months;
         }
         #endregion
     }

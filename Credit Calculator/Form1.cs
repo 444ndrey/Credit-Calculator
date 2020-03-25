@@ -27,6 +27,8 @@ namespace Credit_Calculator
             Setting();
             ComaprePanel.Visible = false;
         }
+        double TotalProcent;
+        double TotalMainSum;
         void DrawGraf() // рисует столбцы
         {
             CreditGraf.Columns.Add("data", "Дата");
@@ -66,7 +68,7 @@ namespace Credit_Calculator
             CreditGraf.RowHeadersVisible = false;
             CreditGraf.AllowUserToResizeColumns = false;
             CreditGraf.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+
             #endregion
 
 
@@ -78,7 +80,7 @@ namespace Credit_Calculator
 
             #region TextBoxes
             AmountBox.MaxLength = 8;
-            if(listBox1.SelectedIndex == 0)
+            if (listBox1.SelectedIndex == 0)
             {
                 MonthsBox.MaxLength = 5;
             }
@@ -93,6 +95,32 @@ namespace Credit_Calculator
         #endregion
         private void Form1_Load(object sender, EventArgs e)
         {
+        }
+        private void RatesBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (RatesBox.Text != string.Empty)
+                {
+                    if (RatesBox.Text.Contains('.'))
+                    {
+                        RatesBox.Text = RatesBox.Text.Replace('.', ',');
+                    }
+                    RatesBox.Text = Convert.ToDouble(RatesBox.Text).ToString("0.00");
+
+                    if (Convert.ToDouble(RatesBox.Text) > 365)
+                    {
+                        RatesBox.Text = $"{365.00}";
+                        RatesBox.Text = Convert.ToDouble(RatesBox.Text).ToString("0.00");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                errorProvider3.SetError(listBox1, "Неверный формат");
+                RatesBox.Text = string.Empty;
+            }
+
         }
         private void tocount_Click(object sender, EventArgs e)
         {
@@ -117,8 +145,7 @@ namespace Credit_Calculator
                 catch (Exception)
                 {
                     c.dateTime1 = DateTime.Now;
-                    ExecpMessage = "Неккоректный ввод даты";
-                    ThisExeptionData();
+                    errorProvider2.SetError(DataBox, "Неккоректный ввод даты");
                 }
                 if (listBox1.SelectedIndex == 0)
                 {
@@ -175,19 +202,20 @@ namespace Credit_Calculator
                 }
                 d.Clear();
                 c.Clear();
-                TotalSum.Text = AmountBox.Text +" руб.";
+                TotalSum.Text = AmountBox.Text + " руб.";
                 TotalPayment.Text = c.TotalPayment.ToString("0.00");
                 TotalRate.Text = $"{Math.Round(c.TotalRate, 2)}" + " руб.";
+                TotalMainSum = c.TotalPayment - c.TotalRate;
+                TotalProcent = Math.Round(c.TotalRate, 2);
+                DiffrenceLabel.Text = $"{Math.Round(TotalMainSum - c.TotalRate,2)}";
             }
             catch (Exception) when (AmountBox.Text == string.Empty || RatesBox.Text == string.Empty || MonthsBox.Text == string.Empty)
             {
-                ExecpMessage = "Не все необходимые поля были заполненны";
-                ThisExceptionTextBox();
+                errorProvider1.SetError(label5, "Не все необходимые поля были заполненны");
             }
             catch (FormatException)
             {
-                ExecpMessage = "Неверный формат";
-                ThisExceptionTextBox();
+                errorProvider1.SetError(label5, "Неверный формат");
             }
             if (AmountBox.Text != string.Empty && RatesBox.Text != string.Empty && MonthsBox.Text != string.Empty)
             {
@@ -207,8 +235,8 @@ namespace Credit_Calculator
                     CreditGraf.FirstDisplayedScrollingColumnIndex = 0;
                 }
             }
-            else 
-            { 
+            else
+            {
                 if (e.Delta < 0)
                 {
                     CreditGraf.FirstDisplayedScrollingRowIndex++;
@@ -219,46 +247,10 @@ namespace Credit_Calculator
         {
             CreditGraf.ClearSelection();
         }
-        System.Timers.Timer tm = new System.Timers.Timer(2500);
-        private void ThisExceptionTextBox() 
-        {
-            label5.Visible = true;
-            label5.Text = ExecpMessage;
-            tm.Elapsed += Timeout;
-            tm.Start();
-            tm.AutoReset = false;
-        }
-        System.Timers.Timer tm2 = new System.Timers.Timer(2500);
-        private void ThisExeptionData()
-        {
-            label7.Visible = true;
-            label7.Text = ExecpMessage;
-            tm2.Elapsed += Timeout2;
-            tm2.Start();
-            tm2.AutoReset = false;
-        }
-        private void Timeout(Object sender, System.Timers.ElapsedEventArgs e)
-        {
-            try
-            {
-                label5.Visible = false;
-            }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-               tm.Stop();
-            }
-        }
-        private void Timeout2(Object sender, System.Timers.ElapsedEventArgs e)
-        {
-            label7.Visible = false;
-            tm2.Stop();
-        }
         private void DataBox_Click(object sender, EventArgs e)
         {
-            if(DataBox.MaskCompleted != true) { DataBox.SelectionStart = 0; DataBox.Clear(); }
+            errorProvider2.Clear();
+            if (DataBox.MaskCompleted != true) { DataBox.SelectionStart = 0; DataBox.Clear(); }
         }
         private void listBox1_Click(object sender, EventArgs e)
         {
@@ -270,7 +262,7 @@ namespace Credit_Calculator
             {
                 if (MonthsBox.Text.Length > 2)
                 {
-                    MonthsBox.Text = MonthsBox.Text.Substring(0,2);
+                    MonthsBox.Text = MonthsBox.Text.Substring(0, 2);
                 }
                 MonthsBox.MaxLength = 2;
             }
@@ -281,23 +273,7 @@ namespace Credit_Calculator
             else
                 e.Handled = true;
         }
-        private void RatesBox_Leave(object sender, EventArgs e)
-        {
-            if (RatesBox.Text != string.Empty)
-            {
-                if (RatesBox.Text.Contains('.'))
-                {
-                    RatesBox.Text = RatesBox.Text.Replace('.', ',');
-                }
-                    RatesBox.Text = Convert.ToDouble(RatesBox.Text).ToString("0.00");
-                
-                if (Convert.ToDouble(RatesBox.Text) > 365)
-                {
-                    RatesBox.Text = $"{365.00}";
-                    RatesBox.Text = Convert.ToDouble(RatesBox.Text).ToString("0.00");
-                }
-            }
-        }
+
         private void MonthsBox_Leave(object sender, EventArgs e)
         {
             if (MonthsBox.Text != string.Empty)
@@ -326,14 +302,12 @@ namespace Credit_Calculator
 
         private void MonthsBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            errorProvider2.Clear();
             if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8) return;
             else
                 e.Handled = true;
         }
-
-
         //*****************************************************
-
         #region Swtich
         private void button2_Click(object sender, EventArgs e)
         {
@@ -357,19 +331,21 @@ namespace Credit_Calculator
         }
         private void RatesBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            errorProvider3.Clear();
             if (Char.IsDigit(e.KeyChar) || e.KeyChar == 8 || e.KeyChar == 46 || e.KeyChar == 44) return;
             else
                 e.Handled = true;
         }
-        private void ToCompareProp() 
-        { 
+        private void ToCompareProp()
+        {
             ComaprePanel.Size = new System.Drawing.Size(722, 522);
             ComaprePanel.Location = new System.Drawing.Point(182, -1);
         }
-        private void DrawGraphicA() 
+        private void DrawGraphicA()
         {
             chart1.Series.Clear();
             chart2.Series.Clear();
+            chart3.Series.Clear();
             int countmonth = 0;
             countmonth = Int32.Parse(MonthsBox.Text);
             int mod = 1;
@@ -379,15 +355,24 @@ namespace Credit_Calculator
             chart2.Series.Add("Процент \nДифференцированного");
             chart1.Series.Add("Тело кредита Аннуитетного");
             chart2.Series.Add("Тело кредита \nДифференцированного");
+            chart3.Series.Add("Соотношение процента к телу кредита");
+            chart3.Series[0].Points.Add(TotalProcent);
+            chart3.Series[0].Points.Add(TotalMainSum);
+            chart3.Series[0].Points[0].LegendText = "Процент";
+            chart3.Series[0].Points[1].LegendText = "Тело \nкредита";
+            chart3.BackColor = Color.FromArgb(35, 44, 63);
             #region ChartPop
             chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             chart1.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             chart2.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             chart2.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            chart1.Series[0].IsValueShownAsLabel = true;
-            chart1.ChartAreas[0].AxisX.ScaleView.Zoom(1, 13);
-            chart2.ChartAreas[0].AxisX.ScaleView.Zoom(1, 13);
-            chart1.ChartAreas[0].AxisX.Interval = 1;
+            chart3.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            chart1.ChartAreas[0].AxisX.ScaleView.Zoom(1, 9);
+            chart2.ChartAreas[0].AxisX.ScaleView.Zoom(1, 9);
+            chart1.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
+            chart1.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
+            chart2.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
+            chart2.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
             #endregion
             for (int i = 0; i < countmonth * mod; i++)
             {
@@ -403,7 +388,14 @@ namespace Credit_Calculator
             listMainSumDif.Clear();
             listRateAint.Clear();
             listRateDif.Clear();
+            #endregion
         }
-        #endregion
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (AmountBox.Text != string.Empty && MonthsBox.Text != string.Empty && RatesBox.Text != string.Empty)
+            {
+                errorProvider1.Clear();
+            }
+        }
     }
 }
