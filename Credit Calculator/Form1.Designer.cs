@@ -35,6 +35,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -64,20 +66,23 @@
             this.AmountBox = new System.Windows.Forms.TextBox();
             this.CreditGraf = new System.Windows.Forms.DataGridView();
             this.ComaprePanel = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.DiffrenceLabelD = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.DiffrenceLabel = new System.Windows.Forms.Label();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.DiffrenceLabel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.ToCountPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CreditGraf)).BeginInit();
             this.ComaprePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
@@ -420,8 +425,11 @@
             // ComaprePanel
             // 
             this.ComaprePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.ComaprePanel.Controls.Add(this.label9);
+            this.ComaprePanel.Controls.Add(this.DiffrenceLabelD);
             this.ComaprePanel.Controls.Add(this.label7);
             this.ComaprePanel.Controls.Add(this.DiffrenceLabel);
+            this.ComaprePanel.Controls.Add(this.chart4);
             this.ComaprePanel.Controls.Add(this.chart3);
             this.ComaprePanel.Controls.Add(this.chart1);
             this.ComaprePanel.Controls.Add(this.chart2);
@@ -430,20 +438,75 @@
             this.ComaprePanel.Size = new System.Drawing.Size(718, 521);
             this.ComaprePanel.TabIndex = 5;
             // 
-            // chart3
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
+            this.label9.Location = new System.Drawing.Point(513, 483);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Переплата:";
+            // 
+            // DiffrenceLabelD
+            // 
+            this.DiffrenceLabelD.AutoSize = true;
+            this.DiffrenceLabelD.ForeColor = System.Drawing.SystemColors.Control;
+            this.DiffrenceLabelD.Location = new System.Drawing.Point(584, 483);
+            this.DiffrenceLabelD.Name = "DiffrenceLabelD";
+            this.DiffrenceLabelD.Size = new System.Drawing.Size(0, 13);
+            this.DiffrenceLabelD.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(513, 202);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Переплата:";
+            // 
+            // DiffrenceLabel
+            // 
+            this.DiffrenceLabel.AutoSize = true;
+            this.DiffrenceLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.DiffrenceLabel.Location = new System.Drawing.Point(584, 202);
+            this.DiffrenceLabel.Name = "DiffrenceLabel";
+            this.DiffrenceLabel.Size = new System.Drawing.Size(0, 13);
+            this.DiffrenceLabel.TabIndex = 3;
+            // 
+            // chart4
             // 
             chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             chartArea1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             chartArea1.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea1);
+            this.chart4.ChartAreas.Add(chartArea1);
             legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             legend1.ForeColor = System.Drawing.Color.White;
             legend1.Name = "Legend1";
-            this.chart3.Legends.Add(legend1);
-            this.chart3.Location = new System.Drawing.Point(521, 37);
+            this.chart4.Legends.Add(legend1);
+            this.chart4.Location = new System.Drawing.Point(521, 340);
+            this.chart4.Name = "chart4";
+            this.chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            this.chart4.Size = new System.Drawing.Size(187, 124);
+            this.chart4.TabIndex = 2;
+            this.chart4.Text = "chart3";
+            // 
+            // chart3
+            // 
+            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            chartArea2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            chartArea2.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.Name = "Legend1";
+            this.chart3.Legends.Add(legend2);
+            this.chart3.Location = new System.Drawing.Point(521, 57);
             this.chart3.Name = "chart3";
             this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            this.chart3.Size = new System.Drawing.Size(187, 144);
+            this.chart3.Size = new System.Drawing.Size(187, 124);
             this.chart3.TabIndex = 2;
             this.chart3.Text = "chart3";
             // 
@@ -453,18 +516,18 @@
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.chart1.BorderSkin.BorderColor = System.Drawing.Color.White;
             this.chart1.BorderSkin.PageColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.AxisX.InterlacedColor = System.Drawing.Color.White;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.White;
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(70)))));
-            chartArea2.BorderColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            legend2.ForeColor = System.Drawing.Color.White;
-            legend2.Name = "Legend1";
-            legend2.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.chart1.Legends.Add(legend2);
+            chartArea3.AxisX.InterlacedColor = System.Drawing.Color.White;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea3.AxisX.TitleForeColor = System.Drawing.Color.White;
+            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(70)))));
+            chartArea3.BorderColor = System.Drawing.Color.Transparent;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            legend3.ForeColor = System.Drawing.Color.White;
+            legend3.Name = "Legend1";
+            legend3.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(8, 0);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
@@ -479,14 +542,14 @@
             this.chart2.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.chart2.BorderSkin.BorderColor = System.Drawing.Color.White;
             this.chart2.BorderSkin.PageColor = System.Drawing.Color.WhiteSmoke;
-            chartArea3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(70)))));
-            chartArea3.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea3);
-            legend3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            legend3.ForeColor = System.Drawing.Color.White;
-            legend3.Name = "Legend1";
-            legend3.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.chart2.Legends.Add(legend3);
+            chartArea4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(70)))));
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            legend4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            legend4.ForeColor = System.Drawing.Color.White;
+            legend4.Name = "Legend1";
+            legend4.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.chart2.Legends.Add(legend4);
             this.chart2.Location = new System.Drawing.Point(2, 265);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
@@ -506,25 +569,6 @@
             // 
             this.errorProvider3.ContainerControl = this;
             // 
-            // DiffrenceLabel
-            // 
-            this.DiffrenceLabel.AutoSize = true;
-            this.DiffrenceLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.DiffrenceLabel.Location = new System.Drawing.Point(569, 202);
-            this.DiffrenceLabel.Name = "DiffrenceLabel";
-            this.DiffrenceLabel.Size = new System.Drawing.Size(0, 13);
-            this.DiffrenceLabel.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(513, 202);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Разница";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,8 +576,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(907, 523);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.ComaprePanel);
             this.Controls.Add(this.ToCountPanel);
+            this.Controls.Add(this.ComaprePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -549,6 +593,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CreditGraf)).EndInit();
             this.ComaprePanel.ResumeLayout(false);
             this.ComaprePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
@@ -590,13 +635,15 @@
         private System.Windows.Forms.Panel ComaprePanel;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.ErrorProvider errorProvider3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label DiffrenceLabel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label DiffrenceLabelD;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
     }
 }
 

@@ -29,6 +29,8 @@ namespace Credit_Calculator
         }
         double TotalProcent;
         double TotalMainSum;
+        double TotalProcentDif;
+        double TotalMainSumDif;
         void DrawGraf() // рисует столбцы
         {
             CreditGraf.Columns.Add("data", "Дата");
@@ -174,6 +176,8 @@ namespace Credit_Calculator
                         CreditGraf[5, i].Value = Math.Round((double)c.listAmount[i], 2);
                     }
                     CreditGraf.ClearSelection();
+                    TotalPayment.Text = c.TotalPayment.ToString("0.00");
+                    TotalRate.Text = $"{Math.Round(c.TotalRate, 2)}" + " руб.";
                 }
                 else
                 {
@@ -189,6 +193,8 @@ namespace Credit_Calculator
                         CreditGraf[5, i].Value = Math.Round((double)d.listAmount[i], 2);
                     }
                     CreditGraf.ClearSelection();
+                    TotalPayment.Text = d.TotalPayment.ToString("0.00");
+                    TotalRate.Text = $"{Math.Round(d.TotalRate, 2)}" + " руб.";
                 }
                 for (int i = 0; i < c.Months; i++)                            //Заполняет список для график А
                 {
@@ -203,11 +209,13 @@ namespace Credit_Calculator
                 d.Clear();
                 c.Clear();
                 TotalSum.Text = AmountBox.Text + " руб.";
-                TotalPayment.Text = c.TotalPayment.ToString("0.00");
-                TotalRate.Text = $"{Math.Round(c.TotalRate, 2)}" + " руб.";
+                
                 TotalMainSum = c.TotalPayment - c.TotalRate;
+                TotalMainSumDif = d.TotalPayment - d.TotalRate;
+                TotalProcentDif = Math.Round(d.TotalRate, 2);
                 TotalProcent = Math.Round(c.TotalRate, 2);
-                DiffrenceLabel.Text = $"{Math.Round(TotalMainSum - c.TotalRate,2)}";
+                DiffrenceLabel.Text = $"{Math.Round(c.TotalPayment - Int32.Parse(AmountBox.Text),2)} руб.";
+                DiffrenceLabelD.Text = $"{Math.Round(d.TotalPayment - Int32.Parse(AmountBox.Text), 2)} руб.";
             }
             catch (Exception) when (AmountBox.Text == string.Empty || RatesBox.Text == string.Empty || MonthsBox.Text == string.Empty)
             {
@@ -219,6 +227,7 @@ namespace Credit_Calculator
             }
             if (AmountBox.Text != string.Empty && RatesBox.Text != string.Empty && MonthsBox.Text != string.Empty)
             {
+                if(Convert.ToInt32(AmountBox.Text) >= 0 || Convert.ToInt32(MonthsBox.Text) >= 0 || Convert.ToDouble(RatesBox.Text) >= 0)
                 DrawGraphicA();
             }
         }
@@ -346,6 +355,7 @@ namespace Credit_Calculator
             chart1.Series.Clear();
             chart2.Series.Clear();
             chart3.Series.Clear();
+            chart4.Series.Clear();
             int countmonth = 0;
             countmonth = Int32.Parse(MonthsBox.Text);
             int mod = 1;
@@ -361,12 +371,22 @@ namespace Credit_Calculator
             chart3.Series[0].Points[0].LegendText = "Процент";
             chart3.Series[0].Points[1].LegendText = "Тело \nкредита";
             chart3.BackColor = Color.FromArgb(35, 44, 63);
+
+            chart4.Series.Add("Соотношение процента к телу кредита");
+            chart4.Series[0].Points.Add(TotalProcentDif);
+            chart4.Series[0].Points.Add(TotalMainSumDif);
+            chart4.Series[0].Points[0].LegendText = "Процент";
+            chart4.Series[0].Points[1].LegendText = "Тело \nкредита";
+            chart4.BackColor = Color.FromArgb(35, 44, 63);
+
+           
             #region ChartPop
             chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             chart1.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             chart2.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             chart2.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             chart3.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            chart4.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             chart1.ChartAreas[0].AxisX.ScaleView.Zoom(1, 9);
             chart2.ChartAreas[0].AxisX.ScaleView.Zoom(1, 9);
             chart1.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
@@ -374,15 +394,22 @@ namespace Credit_Calculator
             chart2.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
             chart2.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
             #endregion
-            for (int i = 0; i < countmonth * mod; i++)
+            try
             {
-                chart1.Series[0].Points.AddXY(i + 1, listRateAint[i]);
-                chart1.Series[1].Points.AddXY(i + 1, listMainSumAint[i]);
+                for (int i = 0; i < countmonth * mod; i++)
+                {
+                    chart1.Series[0].Points.AddXY(i + 1, listRateAint[i]);
+                    chart1.Series[1].Points.AddXY(i + 1, listMainSumAint[i]);
+                }
+                for (int i = 0; i < countmonth * mod; i++)
+                {
+                    chart2.Series[0].Points.AddXY(i + 1, listRateDif[i]);
+                    chart2.Series[1].Points.AddXY(i + 1, listMainSumDif[i]);
+                }
             }
-            for (int i = 0; i < countmonth * mod; i++)
+            catch (Exception)
             {
-                chart2.Series[0].Points.AddXY(i + 1, listRateDif[i]);
-                chart2.Series[1].Points.AddXY(i + 1, listMainSumDif[i]);
+                errorProvider2.SetError(label5, "Некорректные значения");
             }
             listMainSumAint.Clear();
             listMainSumDif.Clear();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections;
 namespace Credit_Calculator
 {
-    sealed class Credit
+ class Credit
     {
         double payment;
         double amount; // Сумма кредита
@@ -151,8 +151,9 @@ namespace Credit_Calculator
                 ListPayment.Add(payment);
                 listAmount.Add(amount);
                 TotalRate += MounthProcent;
+                TotalPayment += payment;
             }
-            TotalPayment = Payment * Months;
+            
         }
         #endregion
     }
