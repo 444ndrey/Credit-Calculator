@@ -125,7 +125,7 @@
             this.ToSaveButton.TabIndex = 7;
             this.ToSaveButton.Text = "Сохранить";
             this.ToSaveButton.UseVisualStyleBackColor = true;
-            this.ToSaveButton.Click += new System.EventHandler(this.button4_Click);
+            this.ToSaveButton.Click += new System.EventHandler(this.Button4_Click);
             // 
             // ToCompareButton
             // 
@@ -140,7 +140,7 @@
             this.ToCompareButton.TabIndex = 6;
             this.ToCompareButton.Text = "Сравнить";
             this.ToCompareButton.UseVisualStyleBackColor = true;
-            this.ToCompareButton.Click += new System.EventHandler(this.button3_Click);
+            this.ToCompareButton.Click += new System.EventHandler(this.Button3_Click);
             // 
             // ToCountButton
             // 
@@ -155,7 +155,7 @@
             this.ToCountButton.TabIndex = 5;
             this.ToCountButton.Text = "Рассчет";
             this.ToCountButton.UseVisualStyleBackColor = true;
-            this.ToCountButton.Click += new System.EventHandler(this.button2_Click);
+            this.ToCountButton.Click += new System.EventHandler(this.Button2_Click);
             // 
             // ToCountPanel
             // 
@@ -264,7 +264,7 @@
             this.tocount.TabIndex = 8;
             this.tocount.Text = "РАССЧИТАТЬ";
             this.tocount.UseVisualStyleBackColor = false;
-            this.tocount.Click += new System.EventHandler(this.tocount_Click);
+            this.tocount.Click += new System.EventHandler(this.Tocount_Click);
             // 
             // label4
             // 
@@ -304,7 +304,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(65, 26);
             this.listBox1.TabIndex = 7;
-            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
+            this.listBox1.Click += new System.EventHandler(this.ListBox1_Click);
             // 
             // label3
             // 

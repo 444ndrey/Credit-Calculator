@@ -17,7 +17,7 @@ namespace Credit_Calculator
         ArrayList listRateAint = new ArrayList();
         ArrayList listMainSumAint = new ArrayList();
         ArrayList listRateDif = new ArrayList();
-        ArrayList listMainSumDif = new ArrayList();
+        readonly ArrayList listMainSumDif = new ArrayList();
         #endregion
         public Form1()
         {
@@ -124,7 +124,7 @@ namespace Credit_Calculator
             }
 
         }
-        private void tocount_Click(object sender, EventArgs e)
+        private void Tocount_Click(object sender, EventArgs e)
         {
             try
             {
@@ -261,7 +261,7 @@ namespace Credit_Calculator
             errorProvider2.Clear();
             if (DataBox.MaskCompleted != true) { DataBox.SelectionStart = 0; DataBox.Clear(); }
         }
-        private void listBox1_Click(object sender, EventArgs e)
+        private void ListBox1_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex == 0)
             {
@@ -318,14 +318,14 @@ namespace Credit_Calculator
         }
         //*****************************************************
         #region Swtich
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             panel4.Height = ToCountButton.Height;
             panel4.Top = ToCountButton.Top;
             ToCountPanel.Visible = true;
             ComaprePanel.Visible = false;
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             panel4.Height = ToCompareButton.Height;
             panel4.Top = ToCompareButton.Top;
@@ -333,7 +333,7 @@ namespace Credit_Calculator
             ToCountPanel.Visible = false;
             ComaprePanel.Visible = true;
         }
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
             panel4.Height = ToSaveButton.Height;
             panel4.Top = ToSaveButton.Top;

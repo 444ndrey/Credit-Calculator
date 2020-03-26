@@ -12,7 +12,6 @@ namespace Credit_Calculator
         double amount; // Сумма кредита
         double rate; // кредитная ставка
         double months; // срок кредита в месяцах
-        string name; //Имя кредита для сохраненния
         double mainsum; // Платеж по основному кредиту
         #region prop
         public DateTime dateTime1 = new DateTime();
@@ -67,14 +66,6 @@ namespace Credit_Calculator
             set
             {
                 if (value >= 1) { rate = value; }
-            }
-        }
-        string Name
-        {
-            get { return name; }
-            set 
-            { 
-                 if(value.Length <= 15) { name = value; }
             }
         }
         #endregion
