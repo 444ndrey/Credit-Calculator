@@ -447,6 +447,7 @@
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 3;
             this.label9.Text = "Переплата:";
+            this.label9.Visible = false;
             // 
             // DiffrenceLabelD
             // 
@@ -466,6 +467,7 @@
             this.label7.Size = new System.Drawing.Size(65, 13);
             this.label7.TabIndex = 3;
             this.label7.Text = "Переплата:";
+            this.label7.Visible = false;
             // 
             // DiffrenceLabel
             // 
@@ -576,8 +578,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(907, 523);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.ToCountPanel);
             this.Controls.Add(this.ComaprePanel);
+            this.Controls.Add(this.ToCountPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

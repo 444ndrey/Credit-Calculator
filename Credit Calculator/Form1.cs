@@ -14,9 +14,9 @@ namespace Credit_Calculator
     {
         protected string ExecpMessage;
         #region ForChart
-        ArrayList listRateAint = new ArrayList();
-        ArrayList listMainSumAint = new ArrayList();
-        ArrayList listRateDif = new ArrayList();
+        readonly ArrayList listRateAint = new ArrayList();
+        readonly ArrayList listMainSumAint = new ArrayList();
+        readonly ArrayList listRateDif = new ArrayList();
         readonly ArrayList listMainSumDif = new ArrayList();
         #endregion
         public Form1()
@@ -26,6 +26,10 @@ namespace Credit_Calculator
             panel4.Top = ToCountButton.Top;
             Setting();
             ComaprePanel.Visible = false;
+            chart1.Visible = false;
+            chart2.Visible = false;
+            chart3.Visible = false;
+            chart4.Visible = false;
         }
         double TotalProcent;
         double TotalMainSum;
@@ -356,10 +360,16 @@ namespace Credit_Calculator
             chart2.Series.Clear();
             chart3.Series.Clear();
             chart4.Series.Clear();
-            int countmonth = 0;
+            chart1.Visible = true;
+            chart2.Visible = true;
+            chart3.Visible = true;
+            chart4.Visible = true;
+            label9.Visible = true;
+            label7.Visible = true;
+            int countmonth;
             countmonth = Int32.Parse(MonthsBox.Text);
             int mod = 1;
-            if (listBox1.SelectedIndex == 0) { countmonth = Int32.Parse(MonthsBox.Text); }
+            if (listBox1.SelectedIndex == 0) {  }
             else { countmonth = Int32.Parse(MonthsBox.Text) * 12; }
             chart1.Series.Add("Процент Аннуитетного");
             chart2.Series.Add("Процент \nДифференцированного");
@@ -371,15 +381,12 @@ namespace Credit_Calculator
             chart3.Series[0].Points[0].LegendText = "Процент";
             chart3.Series[0].Points[1].LegendText = "Тело \nкредита";
             chart3.BackColor = Color.FromArgb(35, 44, 63);
-
             chart4.Series.Add("Соотношение процента к телу кредита");
             chart4.Series[0].Points.Add(TotalProcentDif);
             chart4.Series[0].Points.Add(TotalMainSumDif);
             chart4.Series[0].Points[0].LegendText = "Процент";
             chart4.Series[0].Points[1].LegendText = "Тело \nкредита";
             chart4.BackColor = Color.FromArgb(35, 44, 63);
-
-           
             #region ChartPop
             chart1.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             chart1.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
