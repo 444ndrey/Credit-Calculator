@@ -117,11 +117,11 @@
             this.ToSaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ToSaveButton.FlatAppearance.BorderSize = 0;
             this.ToSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToSaveButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ToSaveButton.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ToSaveButton.ForeColor = System.Drawing.Color.White;
-            this.ToSaveButton.Location = new System.Drawing.Point(3, 218);
+            this.ToSaveButton.Location = new System.Drawing.Point(-1, 218);
             this.ToSaveButton.Name = "ToSaveButton";
-            this.ToSaveButton.Size = new System.Drawing.Size(172, 84);
+            this.ToSaveButton.Size = new System.Drawing.Size(176, 84);
             this.ToSaveButton.TabIndex = 7;
             this.ToSaveButton.Text = "Сохранить";
             this.ToSaveButton.UseVisualStyleBackColor = true;
@@ -132,11 +132,11 @@
             this.ToCompareButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ToCompareButton.FlatAppearance.BorderSize = 0;
             this.ToCompareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToCompareButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ToCompareButton.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ToCompareButton.ForeColor = System.Drawing.Color.White;
-            this.ToCompareButton.Location = new System.Drawing.Point(3, 112);
+            this.ToCompareButton.Location = new System.Drawing.Point(-1, 112);
             this.ToCompareButton.Name = "ToCompareButton";
-            this.ToCompareButton.Size = new System.Drawing.Size(172, 84);
+            this.ToCompareButton.Size = new System.Drawing.Size(176, 84);
             this.ToCompareButton.TabIndex = 6;
             this.ToCompareButton.Text = "Сравнить";
             this.ToCompareButton.UseVisualStyleBackColor = true;
@@ -147,11 +147,11 @@
             this.ToCountButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ToCountButton.FlatAppearance.BorderSize = 0;
             this.ToCountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToCountButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ToCountButton.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ToCountButton.ForeColor = System.Drawing.Color.White;
-            this.ToCountButton.Location = new System.Drawing.Point(3, -3);
+            this.ToCountButton.Location = new System.Drawing.Point(-1, -3);
             this.ToCountButton.Name = "ToCountButton";
-            this.ToCountButton.Size = new System.Drawing.Size(172, 87);
+            this.ToCountButton.Size = new System.Drawing.Size(176, 87);
             this.ToCountButton.TabIndex = 5;
             this.ToCountButton.Text = "Рассчет";
             this.ToCountButton.UseVisualStyleBackColor = true;
@@ -213,12 +213,12 @@
             // TotalLabel
             // 
             this.TotalLabel.AutoSize = true;
+            this.TotalLabel.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TotalLabel.ForeColor = System.Drawing.Color.White;
             this.TotalLabel.Location = new System.Drawing.Point(12, 0);
             this.TotalLabel.Name = "TotalLabel";
-            this.TotalLabel.Size = new System.Drawing.Size(40, 13);
+            this.TotalLabel.Size = new System.Drawing.Size(0, 13);
             this.TotalLabel.TabIndex = 12;
-            this.TotalLabel.Text = "Всего:";
             // 
             // TotalPayment
             // 
@@ -256,7 +256,7 @@
             this.tocount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tocount.FlatAppearance.BorderSize = 0;
             this.tocount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tocount.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tocount.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tocount.ForeColor = System.Drawing.Color.Black;
             this.tocount.Location = new System.Drawing.Point(536, 148);
             this.tocount.Name = "tocount";
@@ -269,13 +269,13 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(155, 148);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 17);
+            this.label4.Size = new System.Drawing.Size(88, 18);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Срок платежа";
+            this.label4.Text = "Тип платежа";
             // 
             // listBox2
             // 
@@ -295,6 +295,7 @@
             // 
             this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox1.ForeColor = System.Drawing.Color.White;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Items.AddRange(new object[] {
@@ -309,44 +310,44 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(157, 110);
+            this.label3.Location = new System.Drawing.Point(146, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 17);
+            this.label3.Size = new System.Drawing.Size(96, 18);
             this.label3.TabIndex = 5;
             this.label3.Text = "Срок кредита";
             // 
             // rublabel
             // 
             this.rublabel.AutoSize = true;
-            this.rublabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rublabel.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rublabel.ForeColor = System.Drawing.Color.White;
             this.rublabel.Location = new System.Drawing.Point(364, 33);
             this.rublabel.Name = "rublabel";
-            this.rublabel.Size = new System.Drawing.Size(35, 17);
+            this.rublabel.Size = new System.Drawing.Size(35, 18);
             this.rublabel.TabIndex = 4;
             this.rublabel.Text = "руб.";
             // 
             // procentlabel
             // 
             this.procentlabel.AutoSize = true;
-            this.procentlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.procentlabel.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.procentlabel.ForeColor = System.Drawing.Color.White;
             this.procentlabel.Location = new System.Drawing.Point(364, 69);
             this.procentlabel.Name = "procentlabel";
-            this.procentlabel.Size = new System.Drawing.Size(20, 17);
+            this.procentlabel.Size = new System.Drawing.Size(20, 18);
             this.procentlabel.TabIndex = 4;
             this.procentlabel.Text = "%";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(118, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 34);
+            this.label2.Size = new System.Drawing.Size(133, 36);
             this.label2.TabIndex = 4;
             this.label2.Text = "Процентная ставка\r\n (%годовых)";
             // 
@@ -354,11 +355,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(452, 66);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 34);
+            this.label6.Size = new System.Drawing.Size(92, 36);
             this.label6.TabIndex = 3;
             this.label6.Text = "Дата первой \r\nоплаты";
             // 
@@ -366,11 +367,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(147, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 17);
+            this.label1.Size = new System.Drawing.Size(106, 18);
             this.label1.TabIndex = 3;
             this.label1.Text = "Сумма кредита";
             // 
@@ -441,10 +442,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.ForeColor = System.Drawing.SystemColors.Control;
             this.label9.Location = new System.Drawing.Point(513, 483);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 13);
+            this.label9.Size = new System.Drawing.Size(60, 13);
             this.label9.TabIndex = 3;
             this.label9.Text = "Переплата:";
             this.label9.Visible = false;
@@ -485,7 +487,9 @@
             chartArea1.Name = "ChartArea1";
             this.chart4.ChartAreas.Add(chartArea1);
             legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            legend1.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             legend1.ForeColor = System.Drawing.Color.White;
+            legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chart4.Legends.Add(legend1);
             this.chart4.Location = new System.Drawing.Point(521, 340);
@@ -502,7 +506,9 @@
             chartArea2.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea2);
             legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            legend2.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             legend2.ForeColor = System.Drawing.Color.White;
+            legend2.IsTextAutoFit = false;
             legend2.Name = "Legend1";
             this.chart3.Legends.Add(legend2);
             this.chart3.Location = new System.Drawing.Point(521, 57);
@@ -586,7 +592,6 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Кредитный калькулятор";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.panel1.ResumeLayout(false);
             this.ToCountPanel.ResumeLayout(false);
@@ -605,7 +610,6 @@
             this.ResumeLayout(false);
 
         }
-
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button ToSaveButton;

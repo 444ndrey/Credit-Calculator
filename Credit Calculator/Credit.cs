@@ -65,7 +65,7 @@ namespace Credit_Calculator
             }
             set
             {
-                if (value >= 1) { rate = value; }
+                if (value >= 0) { rate = value; }
             }
         }
         #endregion
@@ -74,7 +74,7 @@ namespace Credit_Calculator
         public Credit(int a, double r, int m) //(сумма,ставка,срок в месяцах)
         {
             Amount = Convert.ToDouble(a);
-            Rate = Convert.ToDouble(r);
+            Rate = r; 
             Months = m;
         }
         #endregion
@@ -85,11 +85,10 @@ namespace Credit_Calculator
         internal ArrayList listAmount = new ArrayList();
         public void ToCount() // Аннуитетный 
         {
-            double i; // ежемесечная процентная ставка 
-            i = rate / 100;
-            i /= 12;
+            double i = (double)(Rate / 100.0);   // ежемесечная процентная ставка 
+            i /= 12.0;
             double a;
-            a = (double)Math.Pow((1.0 + i), months);
+            a = Math.Pow((1 + i), months);
             a -= 1;
             payment = amount*(i + (i / a));
             for (int j = 0; j < Months; j++)

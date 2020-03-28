@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using System.Globalization;
 namespace Credit_Calculator
 {
     public partial class Form1 : Form
@@ -69,7 +70,6 @@ namespace Credit_Calculator
             CreditGraf.RowHeadersDefaultCellStyle.ForeColor = Color.FromArgb(35, 44, 63);
             CreditGraf.RowsDefaultCellStyle.BackColor = Color.FromArgb(35, 44, 63);
             CreditGraf.BackgroundColor = Color.FromArgb(35, 44, 63);
-            //Color.FromArgb(35, 44, 63);
             CreditGraf.EnableHeadersVisualStyles = false;
             CreditGraf.RowHeadersVisible = false;
             CreditGraf.AllowUserToResizeColumns = false;
@@ -99,9 +99,7 @@ namespace Credit_Calculator
         }
         //***************
         #endregion
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
+        internal int CountOpen = 0;
         private void RatesBox_Leave(object sender, EventArgs e)
         {
             try
@@ -112,21 +110,20 @@ namespace Credit_Calculator
                     {
                         RatesBox.Text = RatesBox.Text.Replace('.', ',');
                     }
-                    RatesBox.Text = Convert.ToDouble(RatesBox.Text).ToString("0.00");
+                    RatesBox.Text = double.Parse(RatesBox.Text).ToString("F2");
 
                     if (Convert.ToDouble(RatesBox.Text) > 365)
                     {
                         RatesBox.Text = $"{365.00}";
-                        RatesBox.Text = Convert.ToDouble(RatesBox.Text).ToString("0.00");
+                        RatesBox.Text = double.Parse(RatesBox.Text).ToString("F2");
                     }
                 }
             }
             catch (Exception)
             {
-                errorProvider3.SetError(listBox1, "Неверный формат");
+                errorProvider3.SetError(RatesBox, "Неверный формат");
                 RatesBox.Text = string.Empty;
             }
-
         }
         private void Tocount_Click(object sender, EventArgs e)
         {
@@ -134,8 +131,7 @@ namespace Credit_Calculator
             {
                 if (Convert.ToInt32(AmountBox.Text) <= 0 || Convert.ToInt32(MonthsBox.Text) <= 0 || Convert.ToDouble(RatesBox.Text) <= 0) { throw new FormatException(); }
                 int a = Int32.Parse(AmountBox.Text);
-                double r;
-                r = Convert.ToDouble(RatesBox.Text);
+                double r = double.Parse(RatesBox.Text);
                 int m = Int32.Parse(MonthsBox.Text);
                 int CharMonths = m;
                 Credit c = new Credit(a, r, m);
