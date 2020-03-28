@@ -45,6 +45,7 @@
             this.ToCountButton = new System.Windows.Forms.Button();
             this.ToCountPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.TotalM = new System.Windows.Forms.Label();
             this.TotalSum = new System.Windows.Forms.Label();
             this.TotalRate = new System.Windows.Forms.Label();
             this.TotalLabel = new System.Windows.Forms.Label();
@@ -78,6 +79,7 @@
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.SavePanel = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.SaveStatusLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.SaveToExcelButton = new System.Windows.Forms.Button();
@@ -112,7 +114,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(150)))), ((int)(((byte)(199)))));
             this.panel4.Location = new System.Drawing.Point(168, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(11, 81);
@@ -127,7 +129,7 @@
             this.ToSaveButton.ForeColor = System.Drawing.Color.White;
             this.ToSaveButton.Location = new System.Drawing.Point(-1, 218);
             this.ToSaveButton.Name = "ToSaveButton";
-            this.ToSaveButton.Size = new System.Drawing.Size(176, 84);
+            this.ToSaveButton.Size = new System.Drawing.Size(182, 84);
             this.ToSaveButton.TabIndex = 7;
             this.ToSaveButton.Text = "Сохранить";
             this.ToSaveButton.UseVisualStyleBackColor = true;
@@ -142,7 +144,7 @@
             this.ToCompareButton.ForeColor = System.Drawing.Color.White;
             this.ToCompareButton.Location = new System.Drawing.Point(-1, 112);
             this.ToCompareButton.Name = "ToCompareButton";
-            this.ToCompareButton.Size = new System.Drawing.Size(176, 84);
+            this.ToCompareButton.Size = new System.Drawing.Size(182, 84);
             this.ToCompareButton.TabIndex = 6;
             this.ToCompareButton.Text = "Сравнить";
             this.ToCompareButton.UseVisualStyleBackColor = true;
@@ -157,7 +159,7 @@
             this.ToCountButton.ForeColor = System.Drawing.Color.White;
             this.ToCountButton.Location = new System.Drawing.Point(-1, -3);
             this.ToCountButton.Name = "ToCountButton";
-            this.ToCountButton.Size = new System.Drawing.Size(176, 87);
+            this.ToCountButton.Size = new System.Drawing.Size(180, 87);
             this.ToCountButton.TabIndex = 5;
             this.ToCountButton.Text = "Рассчет";
             this.ToCountButton.UseVisualStyleBackColor = true;
@@ -174,6 +176,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.TotalM);
             this.panel2.Controls.Add(this.TotalSum);
             this.panel2.Controls.Add(this.TotalRate);
             this.panel2.Controls.Add(this.TotalLabel);
@@ -198,9 +201,20 @@
             this.panel2.Size = new System.Drawing.Size(716, 219);
             this.panel2.TabIndex = 2;
             // 
+            // TotalM
+            // 
+            this.TotalM.AutoSize = true;
+            this.TotalM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalM.ForeColor = System.Drawing.SystemColors.Control;
+            this.TotalM.Location = new System.Drawing.Point(118, 0);
+            this.TotalM.Name = "TotalM";
+            this.TotalM.Size = new System.Drawing.Size(0, 13);
+            this.TotalM.TabIndex = 13;
+            // 
             // TotalSum
             // 
             this.TotalSum.AutoSize = true;
+            this.TotalSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TotalSum.ForeColor = System.Drawing.Color.White;
             this.TotalSum.Location = new System.Drawing.Point(476, 0);
             this.TotalSum.Name = "TotalSum";
@@ -210,6 +224,7 @@
             // TotalRate
             // 
             this.TotalRate.AutoSize = true;
+            this.TotalRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TotalRate.ForeColor = System.Drawing.Color.White;
             this.TotalRate.Location = new System.Drawing.Point(351, 0);
             this.TotalRate.Name = "TotalRate";
@@ -229,6 +244,7 @@
             // TotalPayment
             // 
             this.TotalPayment.AutoSize = true;
+            this.TotalPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TotalPayment.ForeColor = System.Drawing.Color.White;
             this.TotalPayment.Location = new System.Drawing.Point(234, 0);
             this.TotalPayment.Name = "TotalPayment";
@@ -238,6 +254,7 @@
             // DataBox
             // 
             this.DataBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.DataBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DataBox.ForeColor = System.Drawing.Color.White;
             this.DataBox.Location = new System.Drawing.Point(555, 66);
             this.DataBox.Mask = "00/00/0000";
@@ -258,15 +275,15 @@
             // 
             // tocount
             // 
-            this.tocount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.tocount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(220)))), ((int)(((byte)(153)))));
             this.tocount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tocount.FlatAppearance.BorderSize = 0;
             this.tocount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tocount.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tocount.ForeColor = System.Drawing.Color.Black;
-            this.tocount.Location = new System.Drawing.Point(536, 148);
+            this.tocount.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tocount.ForeColor = System.Drawing.Color.White;
+            this.tocount.Location = new System.Drawing.Point(568, 162);
             this.tocount.Name = "tocount";
-            this.tocount.Size = new System.Drawing.Size(170, 49);
+            this.tocount.Size = new System.Drawing.Size(141, 49);
             this.tocount.TabIndex = 8;
             this.tocount.Text = "Рассчитать";
             this.tocount.UseVisualStyleBackColor = false;
@@ -287,6 +304,7 @@
             // 
             this.listBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox2.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox2.ForeColor = System.Drawing.Color.White;
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Items.AddRange(new object[] {
@@ -460,6 +478,7 @@
             // DiffrenceLabelD
             // 
             this.DiffrenceLabelD.AutoSize = true;
+            this.DiffrenceLabelD.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DiffrenceLabelD.ForeColor = System.Drawing.SystemColors.Control;
             this.DiffrenceLabelD.Location = new System.Drawing.Point(584, 483);
             this.DiffrenceLabelD.Name = "DiffrenceLabelD";
@@ -480,6 +499,7 @@
             // DiffrenceLabel
             // 
             this.DiffrenceLabel.AutoSize = true;
+            this.DiffrenceLabel.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DiffrenceLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.DiffrenceLabel.Location = new System.Drawing.Point(584, 202);
             this.DiffrenceLabel.Name = "DiffrenceLabel";
@@ -585,6 +605,7 @@
             // 
             // SavePanel
             // 
+            this.SavePanel.Controls.Add(this.label10);
             this.SavePanel.Controls.Add(this.SaveStatusLabel);
             this.SavePanel.Controls.Add(this.label8);
             this.SavePanel.Controls.Add(this.SaveToExcelButton);
@@ -593,6 +614,17 @@
             this.SavePanel.Size = new System.Drawing.Size(722, 518);
             this.SavePanel.TabIndex = 5;
             this.SavePanel.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.ForeColor = System.Drawing.SystemColors.Control;
+            this.label10.Location = new System.Drawing.Point(320, 461);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 26);
+            this.label10.TabIndex = 2;
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SaveStatusLabel
             // 
@@ -610,7 +642,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(539, 417);
+            this.label8.Location = new System.Drawing.Point(9, 388);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(130, 18);
             this.label8.TabIndex = 1;
@@ -619,15 +651,16 @@
             // 
             // SaveToExcelButton
             // 
-            this.SaveToExcelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.SaveToExcelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(220)))), ((int)(((byte)(153)))));
             this.SaveToExcelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveToExcelButton.Enabled = false;
+            this.SaveToExcelButton.FlatAppearance.BorderSize = 0;
             this.SaveToExcelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveToExcelButton.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SaveToExcelButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SaveToExcelButton.Location = new System.Drawing.Point(525, 444);
+            this.SaveToExcelButton.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SaveToExcelButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.SaveToExcelButton.Location = new System.Drawing.Point(4, 409);
             this.SaveToExcelButton.Name = "SaveToExcelButton";
-            this.SaveToExcelButton.Size = new System.Drawing.Size(169, 49);
+            this.SaveToExcelButton.Size = new System.Drawing.Size(711, 49);
             this.SaveToExcelButton.TabIndex = 0;
             this.SaveToExcelButton.Text = "Сохранить";
             this.SaveToExcelButton.UseVisualStyleBackColor = false;
@@ -640,9 +673,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(907, 523);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ToCountPanel);
             this.Controls.Add(this.SavePanel);
             this.Controls.Add(this.ComaprePanel);
-            this.Controls.Add(this.ToCountPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -714,6 +747,8 @@
         private System.Windows.Forms.Button SaveToExcelButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label SaveStatusLabel;
+        private System.Windows.Forms.Label TotalM;
+        private System.Windows.Forms.Label label10;
     }
 }
 

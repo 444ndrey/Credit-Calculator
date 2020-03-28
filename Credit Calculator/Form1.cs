@@ -6,6 +6,7 @@ using System.Collections;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using System.Data;
+using System.Threading;
 namespace Credit_Calculator
 {
     public partial class Form1 : Form
@@ -208,6 +209,7 @@ namespace Credit_Calculator
                 
                 TotalMainSum = c.TotalPayment - c.TotalRate;
                 TotalMainSumDif = d.TotalPayment - d.TotalRate;
+                TotalM.Text = $"{c.Months}";
                 TotalProcentDif = Math.Round(d.TotalRate, 2);
                 TotalProcent = Math.Round(c.TotalRate, 2);
                 DiffrenceLabel.Text = $"{Math.Round(c.TotalPayment - Int32.Parse(AmountBox.Text),2)} руб.";
@@ -432,17 +434,15 @@ namespace Credit_Calculator
         private void SaveToExcelButton_Click(object sender, EventArgs e)
         {
             saveFileDialog1.InitialDirectory = "C:";
-            saveFileDialog1.Title = "Сохранние графика";
+            saveFileDialog1.Title = "Сохранение графика";
             saveFileDialog1.FileName = "График_платежей";
-            saveFileDialog1.Filter = "Excel|*.xls|Excel 2010|*.xlsx";
+            saveFileDialog1.Filter = "Excel 2010 |*.xlsx|Excel|*.xls";
             if (saveFileDialog1.ShowDialog() != DialogResult.Cancel)
             {
                 Microsoft.Office.Interop.Excel.Application Excelsapp = new Microsoft.Office.Interop.Excel.Application();
                 Excelsapp.Application.Workbooks.Add(Type.Missing);
 
                 Excelsapp.Columns.ColumnWidth = 20;
-
-
                 for (int i = 1; i < CreditGraf.Columns.Count + 1; i++)
                 {
                     Excelsapp.Cells[1, i] = CreditGraf.Columns[i - 1].HeaderText;
