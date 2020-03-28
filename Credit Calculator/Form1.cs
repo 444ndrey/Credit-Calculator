@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
-using System.Globalization;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
+using System.Data;
 namespace Credit_Calculator
 {
     public partial class Form1 : Form
@@ -99,7 +96,6 @@ namespace Credit_Calculator
         }
         //***************
         #endregion
-        internal int CountOpen = 0;
         private void RatesBox_Leave(object sender, EventArgs e)
         {
             try
@@ -230,6 +226,7 @@ namespace Credit_Calculator
                 if(Convert.ToInt32(AmountBox.Text) >= 0 || Convert.ToInt32(MonthsBox.Text) >= 0 || Convert.ToDouble(RatesBox.Text) >= 0)
                 DrawGraphicA();
             }
+            SaveToExcelButton.Enabled = true;
         }
         private void CreditGraf_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -324,6 +321,7 @@ namespace Credit_Calculator
             panel4.Top = ToCountButton.Top;
             ToCountPanel.Visible = true;
             ComaprePanel.Visible = false;
+            SavePanel.Visible = false;
         }
         private void Button3_Click(object sender, EventArgs e)
         {
@@ -332,11 +330,15 @@ namespace Credit_Calculator
             ToCompareProp();
             ToCountPanel.Visible = false;
             ComaprePanel.Visible = true;
+            SavePanel.Visible = false;
         }
         private void Button4_Click(object sender, EventArgs e)
         {
             panel4.Height = ToSaveButton.Height;
             panel4.Top = ToSaveButton.Top;
+            ComaprePanel.Visible = false;
+            ToCountPanel.Visible = false;
+            SavePanel.Visible = true;
         }
         private void RatesBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -427,5 +429,37 @@ namespace Credit_Calculator
                 errorProvider1.Clear();
             }
         }
+        private void SaveToExcelButton_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.InitialDirectory = "C:";
+            saveFileDialog1.Title = "Сохранние графика";
+            saveFileDialog1.FileName = "График_платежей";
+            saveFileDialog1.Filter = "Excel|*.xls|Excel 2010|*.xlsx";
+            if (saveFileDialog1.ShowDialog() != DialogResult.Cancel)
+            {
+                Microsoft.Office.Interop.Excel.Application Excelsapp = new Microsoft.Office.Interop.Excel.Application();
+                Excelsapp.Application.Workbooks.Add(Type.Missing);
+
+                Excelsapp.Columns.ColumnWidth = 20;
+
+
+                for (int i = 1; i < CreditGraf.Columns.Count + 1; i++)
+                {
+                    Excelsapp.Cells[1, i] = CreditGraf.Columns[i - 1].HeaderText;
+                }
+                for (int i = 0; i < CreditGraf.Rows.Count; i++)
+                {
+                    for (int j = 0; j < CreditGraf.Columns.Count; j++)
+                    {
+                        Excelsapp.Cells[i + 2, j + 1] = CreditGraf.Rows[i].Cells[j].Value;
+                    }
+                }
+                Excelsapp.ActiveWorkbook.SaveCopyAs(saveFileDialog1.FileName.ToString());
+                Excelsapp.ActiveWorkbook.Saved = true;
+                Excelsapp.Quit();
+                MessageBox.Show("Сохраненно!");
+            }
+        }
     }
+    
 }

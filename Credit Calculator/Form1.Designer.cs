@@ -77,6 +77,11 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.SavePanel = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.SaveToExcelButton = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.SaveStatusLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.ToCountPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -89,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            this.SavePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -256,13 +262,13 @@
             this.tocount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tocount.FlatAppearance.BorderSize = 0;
             this.tocount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tocount.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tocount.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tocount.ForeColor = System.Drawing.Color.Black;
             this.tocount.Location = new System.Drawing.Point(536, 148);
             this.tocount.Name = "tocount";
             this.tocount.Size = new System.Drawing.Size(170, 49);
             this.tocount.TabIndex = 8;
-            this.tocount.Text = "РАССЧИТАТЬ";
+            this.tocount.Text = "Рассчитать";
             this.tocount.UseVisualStyleBackColor = false;
             this.tocount.Click += new System.EventHandler(this.Tocount_Click);
             // 
@@ -577,6 +583,56 @@
             // 
             this.errorProvider3.ContainerControl = this;
             // 
+            // SavePanel
+            // 
+            this.SavePanel.Controls.Add(this.SaveStatusLabel);
+            this.SavePanel.Controls.Add(this.label8);
+            this.SavePanel.Controls.Add(this.SaveToExcelButton);
+            this.SavePanel.Location = new System.Drawing.Point(182, 0);
+            this.SavePanel.Name = "SavePanel";
+            this.SavePanel.Size = new System.Drawing.Size(722, 518);
+            this.SavePanel.TabIndex = 5;
+            this.SavePanel.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
+            this.label8.Location = new System.Drawing.Point(428, 444);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 36);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Сохранить в\r\nExcel";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // SaveToExcelButton
+            // 
+            this.SaveToExcelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.SaveToExcelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveToExcelButton.Enabled = false;
+            this.SaveToExcelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveToExcelButton.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SaveToExcelButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SaveToExcelButton.Location = new System.Drawing.Point(525, 444);
+            this.SaveToExcelButton.Name = "SaveToExcelButton";
+            this.SaveToExcelButton.Size = new System.Drawing.Size(169, 49);
+            this.SaveToExcelButton.TabIndex = 0;
+            this.SaveToExcelButton.Text = "Сохранить";
+            this.SaveToExcelButton.UseVisualStyleBackColor = false;
+            this.SaveToExcelButton.Click += new System.EventHandler(this.SaveToExcelButton_Click);
+            // 
+            // SaveStatusLabel
+            // 
+            this.SaveStatusLabel.AutoSize = true;
+            this.SaveStatusLabel.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
+            this.SaveStatusLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.SaveStatusLabel.Location = new System.Drawing.Point(43, 447);
+            this.SaveStatusLabel.Name = "SaveStatusLabel";
+            this.SaveStatusLabel.Size = new System.Drawing.Size(0, 18);
+            this.SaveStatusLabel.TabIndex = 1;
+            this.SaveStatusLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -584,6 +640,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(907, 523);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.SavePanel);
             this.Controls.Add(this.ComaprePanel);
             this.Controls.Add(this.ToCountPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -607,6 +664,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            this.SavePanel.ResumeLayout(false);
+            this.SavePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -650,6 +709,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label DiffrenceLabelD;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
+        private System.Windows.Forms.Panel SavePanel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button SaveToExcelButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label SaveStatusLabel;
     }
 }
 
