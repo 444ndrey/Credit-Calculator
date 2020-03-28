@@ -78,10 +78,10 @@
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.SavePanel = new System.Windows.Forms.Panel();
+            this.SaveStatusLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.SaveToExcelButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.SaveStatusLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.ToCountPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -594,16 +594,27 @@
             this.SavePanel.TabIndex = 5;
             this.SavePanel.Visible = false;
             // 
+            // SaveStatusLabel
+            // 
+            this.SaveStatusLabel.AutoSize = true;
+            this.SaveStatusLabel.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
+            this.SaveStatusLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.SaveStatusLabel.Location = new System.Drawing.Point(43, 447);
+            this.SaveStatusLabel.Name = "SaveStatusLabel";
+            this.SaveStatusLabel.Size = new System.Drawing.Size(0, 18);
+            this.SaveStatusLabel.TabIndex = 1;
+            this.SaveStatusLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(428, 444);
+            this.label8.Location = new System.Drawing.Point(539, 417);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 36);
+            this.label8.Size = new System.Drawing.Size(130, 18);
             this.label8.TabIndex = 1;
-            this.label8.Text = "Сохранить в\r\nExcel";
+            this.label8.Text = "Сохранить в Excel";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // SaveToExcelButton
@@ -621,17 +632,6 @@
             this.SaveToExcelButton.Text = "Сохранить";
             this.SaveToExcelButton.UseVisualStyleBackColor = false;
             this.SaveToExcelButton.Click += new System.EventHandler(this.SaveToExcelButton_Click);
-            // 
-            // SaveStatusLabel
-            // 
-            this.SaveStatusLabel.AutoSize = true;
-            this.SaveStatusLabel.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
-            this.SaveStatusLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.SaveStatusLabel.Location = new System.Drawing.Point(43, 447);
-            this.SaveStatusLabel.Name = "SaveStatusLabel";
-            this.SaveStatusLabel.Size = new System.Drawing.Size(0, 18);
-            this.SaveStatusLabel.TabIndex = 1;
-            this.SaveStatusLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
             // 
