@@ -457,7 +457,7 @@ namespace Credit_Calculator
                 Excelsapp.ActiveWorkbook.SaveCopyAs(saveFileDialog1.FileName.ToString());
                 Excelsapp.ActiveWorkbook.Saved = true;
                 Excelsapp.Quit();
-                MessageBox.Show("Сохраненно!");
+                MessageBox.Show("Сохранено!");
             }
         }
     }
