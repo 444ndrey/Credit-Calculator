@@ -161,7 +161,7 @@
             this.ToCountButton.Name = "ToCountButton";
             this.ToCountButton.Size = new System.Drawing.Size(180, 87);
             this.ToCountButton.TabIndex = 5;
-            this.ToCountButton.Text = "Рассчет";
+            this.ToCountButton.Text = "Расчет";
             this.ToCountButton.UseVisualStyleBackColor = true;
             this.ToCountButton.Click += new System.EventHandler(this.Button2_Click);
             // 
