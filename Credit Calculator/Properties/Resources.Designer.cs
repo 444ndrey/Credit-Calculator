@@ -63,29 +63,9 @@ namespace Credit_Calculator.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Em_cklych {
-            get {
-                object obj = ResourceManager.GetObject("Em_cklych", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap logo4 {
             get {
                 object obj = ResourceManager.GetObject("logo4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Qse6F_39ybY {
-            get {
-                object obj = ResourceManager.GetObject("Qse6F-39ybY", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

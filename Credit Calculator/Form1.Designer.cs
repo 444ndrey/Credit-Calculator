@@ -114,7 +114,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(150)))), ((int)(((byte)(199)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(157)))), ((int)(((byte)(225)))));
             this.panel4.Location = new System.Drawing.Point(168, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(11, 81);
@@ -466,11 +466,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.ForeColor = System.Drawing.SystemColors.Control;
-            this.label9.Location = new System.Drawing.Point(513, 483);
+            this.label9.Location = new System.Drawing.Point(513, 481);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 13);
+            this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 3;
             this.label9.Text = "Переплата:";
             this.label9.Visible = false;
@@ -478,9 +478,9 @@
             // DiffrenceLabelD
             // 
             this.DiffrenceLabelD.AutoSize = true;
-            this.DiffrenceLabelD.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiffrenceLabelD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DiffrenceLabelD.ForeColor = System.Drawing.SystemColors.Control;
-            this.DiffrenceLabelD.Location = new System.Drawing.Point(584, 483);
+            this.DiffrenceLabelD.Location = new System.Drawing.Point(578, 481);
             this.DiffrenceLabelD.Name = "DiffrenceLabelD";
             this.DiffrenceLabelD.Size = new System.Drawing.Size(0, 13);
             this.DiffrenceLabelD.TabIndex = 3;
@@ -499,9 +499,9 @@
             // DiffrenceLabel
             // 
             this.DiffrenceLabel.AutoSize = true;
-            this.DiffrenceLabel.Font = new System.Drawing.Font("Corbel", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiffrenceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DiffrenceLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.DiffrenceLabel.Location = new System.Drawing.Point(584, 202);
+            this.DiffrenceLabel.Location = new System.Drawing.Point(578, 202);
             this.DiffrenceLabel.Name = "DiffrenceLabel";
             this.DiffrenceLabel.Size = new System.Drawing.Size(0, 13);
             this.DiffrenceLabel.TabIndex = 3;
