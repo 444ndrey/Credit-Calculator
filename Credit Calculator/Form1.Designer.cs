@@ -161,7 +161,7 @@
             this.ToCountButton.Name = "ToCountButton";
             this.ToCountButton.Size = new System.Drawing.Size(180, 87);
             this.ToCountButton.TabIndex = 5;
-            this.ToCountButton.Text = "Рассчет";
+            this.ToCountButton.Text = "Расчет";
             this.ToCountButton.UseVisualStyleBackColor = true;
             this.ToCountButton.Click += new System.EventHandler(this.Button2_Click);
             // 
@@ -672,8 +672,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(907, 523);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.ToCountPanel);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.SavePanel);
             this.Controls.Add(this.ComaprePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

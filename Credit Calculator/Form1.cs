@@ -307,7 +307,6 @@ namespace Credit_Calculator
                 }
             }
         }
-
         private void MonthsBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             errorProvider2.Clear();
@@ -433,32 +432,44 @@ namespace Credit_Calculator
         }
         private void SaveToExcelButton_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.InitialDirectory = "C:";
-            saveFileDialog1.Title = "Сохранение графика";
-            saveFileDialog1.FileName = "График_платежей";
-            saveFileDialog1.Filter = "Excel 2010 |*.xlsx|Excel|*.xls";
-            if (saveFileDialog1.ShowDialog() != DialogResult.Cancel)
+            try
             {
-                Microsoft.Office.Interop.Excel.Application Excelsapp = new Microsoft.Office.Interop.Excel.Application();
-                Excelsapp.Application.Workbooks.Add(Type.Missing);
+                saveFileDialog1.InitialDirectory = "C:";
+                saveFileDialog1.Title = "Сохранение графика";
+                saveFileDialog1.FileName = "График_платежей";
+                saveFileDialog1.Filter = "Excel 2010 |*.xlsx|Excel|*.xls";
+                if (saveFileDialog1.ShowDialog() != DialogResult.Cancel)
+                {
+                    Microsoft.Office.Interop.Excel.Application Excelsapp = new Microsoft.Office.Interop.Excel.Application();
+                    Excelsapp.Application.Workbooks.Add(Type.Missing);
 
-                Excelsapp.Columns.ColumnWidth = 20;
-                for (int i = 1; i < CreditGraf.Columns.Count + 1; i++)
-                {
-                    Excelsapp.Cells[1, i] = CreditGraf.Columns[i - 1].HeaderText;
-                }
-                for (int i = 0; i < CreditGraf.Rows.Count; i++)
-                {
-                    for (int j = 0; j < CreditGraf.Columns.Count; j++)
+                    Excelsapp.Columns.ColumnWidth = 20;
+                    for (int i = 1; i < CreditGraf.Columns.Count + 1; i++)
                     {
-                        Excelsapp.Cells[i + 2, j + 1] = CreditGraf.Rows[i].Cells[j].Value;
+                        Excelsapp.Cells[1, i] = CreditGraf.Columns[i - 1].HeaderText;
                     }
+                    for (int i = 0; i < CreditGraf.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < CreditGraf.Columns.Count; j++)
+                        {
+                            Excelsapp.Cells[i + 2, j + 1] = CreditGraf.Rows[i].Cells[j].Value;
+                        }
+                    }
+                    Excelsapp.ActiveWorkbook.SaveCopyAs(saveFileDialog1.FileName.ToString());
+                    Excelsapp.ActiveWorkbook.Saved = true;
+                    Excelsapp.Quit();
+                    MessageBox.Show("Сохранено!");
                 }
-                Excelsapp.ActiveWorkbook.SaveCopyAs(saveFileDialog1.FileName.ToString());
-                Excelsapp.ActiveWorkbook.Saved = true;
-                Excelsapp.Quit();
-                MessageBox.Show("Сохраненно!");
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Возможно вы пытаетесь заменить открытый файл.\n " +
+                    "Пожалуйста закройте заменяемый файл или попробуйте сохранить новый под другим именем", 
+                    "Ошибка сохранения!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            
+            
         }
     }
     
